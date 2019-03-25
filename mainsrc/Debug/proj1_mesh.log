@@ -1,0 +1,12 @@
+﻿  MySphere.cpp
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\mysphere.cpp(61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\mysphere.cpp(113): warning C4018: '<': signed/unsigned mismatch
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\mysphere.cpp(209): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\main.cpp(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\main.cpp(360): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\main.cpp(473): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+i:\courses\cap4730_fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\main.cpp(474): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+main.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+LINK : fatal error LNK1104: cannot open file 'freeglutd.lib'

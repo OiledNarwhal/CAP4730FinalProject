@@ -1,0 +1,37 @@
+﻿  main.cpp
+main.cpp(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+main.cpp(360): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+main.cpp(473): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+main.cpp(474): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  MySphere.cpp
+MySphere.cpp(61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+MySphere.cpp(113): warning C4018: '<': signed/unsigned mismatch
+MySphere.cpp(209): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+main.obj : error LNK2001: unresolved external symbol __imp__glutReshapeFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp____glutCreateWindowWithExit@8
+main.obj : error LNK2001: unresolved external symbol __imp__glutMouseFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp____glutInitWithExit@12
+main.obj : error LNK2001: unresolved external symbol __imp__glutPostRedisplay@0
+main.obj : error LNK2001: unresolved external symbol __imp__glutKeyboardFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutIdleFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutInitDisplayMode@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutSpecialFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutDisplayFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutMainLoop@0
+main.obj : error LNK2001: unresolved external symbol __imp__glutInitWindowPosition@8
+main.obj : error LNK2001: unresolved external symbol __imp__glutMotionFunc@4
+main.obj : error LNK2001: unresolved external symbol __imp__glutInitWindowSize@8
+main.obj : error LNK2001: unresolved external symbol __imp__glutSwapBuffers@0
+libpng.lib(png.obj) : error LNK2001: unresolved external symbol _adler32
+libpng.lib(png.obj) : error LNK2001: unresolved external symbol _inflateReset
+libpng.lib(png.obj) : error LNK2001: unresolved external symbol _crc32
+libpng.lib(pngread.obj) : error LNK2001: unresolved external symbol _inflateEnd
+libpng.lib(pngwrite.obj) : error LNK2001: unresolved external symbol _deflateEnd
+libpng.lib(pngwutil.obj) : error LNK2001: unresolved external symbol _deflateReset
+libpng.lib(pngwutil.obj) : error LNK2001: unresolved external symbol _deflateInit2_
+libpng.lib(pngwutil.obj) : error LNK2001: unresolved external symbol _deflate
+libpng.lib(pngrutil.obj) : error LNK2001: unresolved external symbol _inflateReset2
+libpng.lib(pngrutil.obj) : error LNK2001: unresolved external symbol _inflateInit2_
+libpng.lib(pngrutil.obj) : error LNK2001: unresolved external symbol _inflateValidate
+libpng.lib(pngrutil.obj) : error LNK2001: unresolved external symbol _inflate
+I:\courses\cap4730_Fall2018\projects\proj1_mesh\_gradingsolution_ codeupgrade_2018_\proj1_mesh_grading\src\mainsrc\Release\proj1_mesh.exe : fatal error LNK1120: 27 unresolved externals

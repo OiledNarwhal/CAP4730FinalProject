@@ -1,0 +1,14 @@
+﻿cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  MySphere.cpp
+c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp(92): warning C4018: '<': signed/unsigned mismatch
+c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp(106): warning C4018: '<': signed/unsigned mismatch
+c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp(188): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp(194): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+libst.lib(STColor4ub.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  libpng.lib(png.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+libst.lib(STColor4ub.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  Generating code
+  Finished generating code
+  proj1.vcxproj -> C:\Users\Michael McNally\source\repos\Final Proj\src\mainsrc\bin\proj1\Debug\proj1.exe
