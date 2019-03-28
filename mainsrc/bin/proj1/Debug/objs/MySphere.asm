@@ -10,9 +10,13 @@ INCLUDELIB LIBCMTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG40991 DB	'Number of Faces: ', 00H
+$SG41036 DB	'Number of Faces: ', 00H
 	ORG $+2
-$SG40776 DB	'../../data/meshes/mysphere.obj', 00H
+$SG40793 DB	'../../data/meshes/mysphere.obj', 00H
+	ORG $+1
+$SG40873 DB	' ', 00H
+	ORG $+2
+$SG40874 DB	' ', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -228,6 +232,7 @@ PUBLIC	?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_ostream@DU?$c
 PUBLIC	?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ ; std::basic_ios<char,std::char_traits<char> >::rdbuf
 PUBLIC	?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDXZ ; std::basic_ios<char,std::char_traits<char> >::fill
 PUBLIC	?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ ; std::basic_ostream<char,std::char_traits<char> >::_Osfx
+PUBLIC	??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z ; std::basic_ostream<char,std::char_traits<char> >::operator<<
 PUBLIC	??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z ; std::basic_ostream<char,std::char_traits<char> >::operator<<
 PUBLIC	?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ ; std::basic_ostream<char,std::char_traits<char> >::flush
 PUBLIC	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
@@ -430,6 +435,7 @@ PUBLIC	?_Getcat@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@
 PUBLIC	??1?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAE@XZ ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::~num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >
 PUBLIC	?_Init@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@IAEXABV_Locinfo@2@@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::_Init
 PUBLIC	??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >
+PUBLIC	?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::put
 PUBLIC	?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DK@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::put
 PUBLIC	?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@D_N@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::do_put
 PUBLIC	?do_put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::do_put
@@ -819,6 +825,10 @@ EXTRN	??1STTriangleMesh@@QAE@XZ:PROC			; STTriangleMesh::~STTriangleMesh
 EXTRN	?Write@STTriangleMesh@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z:PROC ; STTriangleMesh::Write
 EXTRN	?AddVertex@STTriangleMesh@@QAEIMMMMM@Z:PROC	; STTriangleMesh::AddVertex
 EXTRN	?AddFace@STTriangleMesh@@QAEIIII@Z:PROC		; STTriangleMesh::AddFace
+EXTRN	??0DiamondSquare@@QAE@XZ:PROC			; DiamondSquare::DiamondSquare
+EXTRN	??1DiamondSquare@@QAE@XZ:PROC			; DiamondSquare::~DiamondSquare
+EXTRN	?getArray@DiamondSquare@@QAEPAPAMXZ:PROC	; DiamondSquare::getArray
+EXTRN	?buildArray@DiamondSquare@@QAEXXZ:PROC		; DiamondSquare::buildArray
 EXTRN	??_E?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@MAEPAXI@Z:PROC ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::`vector deleting destructor'
 EXTRN	??_E?$numpunct@D@std@@MAEPAXI@Z:PROC		; std::numpunct<char>::`vector deleting destructor'
 EXTRN	__CxxThrowException@8:PROC
@@ -2615,8 +2625,10 @@ __unwindtable$?GenerateMesh@MySphere@@AAEXPAVSTTriangleMesh@@V?$vector@UTriangle
 	DD	FLAT:__unwindfunclet$?GenerateMesh@MySphere@@AAEXPAVSTTriangleMesh@@V?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@V?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@4@H@Z$1
 __unwindtable$?Create@MySphere@@QAEXH@Z DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?Create@MySphere@@QAEXH@Z$0
-	DD	0ffffffffH
+	DD	00H
 	DD	FLAT:__unwindfunclet$?Create@MySphere@@QAEXH@Z$1
+	DD	00H
+	DD	FLAT:__unwindfunclet$?Create@MySphere@@QAEXH@Z$2
 __ehfuncinfo$?Save@MySphere@@AAEXPAD@Z DD 019930522H
 	DD	01H
 	DD	FLAT:__unwindtable$?Save@MySphere@@AAEXPAD@Z
@@ -2632,7 +2644,7 @@ __ehfuncinfo$?GenerateMesh@MySphere@@AAEXPAVSTTriangleMesh@@V?$vector@UTriangleI
 	DD	00H
 	DD	01H
 __ehfuncinfo$?Create@MySphere@@QAEXH@Z DD 019930522H
-	DD	02H
+	DD	03H
 	DD	FLAT:__unwindtable$?Create@MySphere@@QAEXH@Z
 	DD	2 DUP(00H)
 	DD	2 DUP(00H)
@@ -2734,6 +2746,34 @@ __ehfuncinfo$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z DD 019
 	DD	FLAT:__unwindtable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z
 	DD	01H
 	DD	FLAT:__tryblocktable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+xdata$x	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__catchsym$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$4 DD 040H
+	DD	00H
+	DD	00H
+	DD	FLAT:__catch$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$0
+__tryblocktable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z DD 02H
+	DD	02H
+	DD	03H
+	DD	01H
+	DD	FLAT:__catchsym$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$4
+__unwindtable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$2
+	DD	00H
+	DD	FLAT:__unwindfunclet$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$3
+	DD	00H
+	DD	00H
+	DD	00H
+	DD	00H
+__ehfuncinfo$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z DD 019930522H
+	DD	04H
+	DD	FLAT:__unwindtable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	DD	01H
+	DD	FLAT:__tryblocktable$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
 	DD	2 DUP(00H)
 	DD	00H
 	DD	01H
@@ -12903,6 +12943,54 @@ __Val$ = 28						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp
 ; File c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xlocnum
+;	COMDAT ?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___$ReturnUdt$ = 8					; size = 4
+__Dest$ = 12						; size = 8
+__Iosbase$ = 20						; size = 4
+__Fill$ = 24						; size = 1
+__Val$ = 28						; size = 4
+?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z PROC ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::put, COMDAT
+; _this$ = ecx
+
+; 1463 : 		{	// put formatted long to _Dest
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 1464 : 		return (do_put(_Dest, _Iosbase, _Fill, _Val));
+
+	mov	eax, DWORD PTR __Val$[ebp]
+	push	eax
+	movzx	ecx, BYTE PTR __Fill$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR __Iosbase$[ebp]
+	push	edx
+	mov	eax, DWORD PTR __Dest$[ebp+4]
+	push	eax
+	mov	ecx, DWORD PTR __Dest$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR ___$ReturnUdt$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx+36]
+	call	eax
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+
+; 1465 : 		}
+
+	mov	esp, ebp
+	pop	ebp
+	ret	24					; 00000018H
+?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z ENDP ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::put
+_TEXT	ENDS
+; Function compile flags: /Odtp
+; File c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xlocnum
 ;	COMDAT ??0?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QAE@ABV_Locinfo@1@I@Z
 _TEXT	SEGMENT
 _this$ = -16						; size = 4
@@ -15642,7 +15730,7 @@ _filename$ = 8						; size = 4
 ?Save@MySphere@@AAEXPAD@Z PROC				; MySphere::Save
 ; _this$ = ecx
 
-; 227  :  {
+; 250  :  {
 
 	push	ebp
 	mov	ebp, esp
@@ -15654,8 +15742,8 @@ _filename$ = 8						; size = 4
 	sub	esp, 36					; 00000024H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 228  :    // save the result sphere
-; 229  :     for(int id=0; id < (int)m_TriangleMeshes.size(); id++)
+; 251  :    // save the result sphere
+; 252  :     for(int id=0; id < (int)m_TriangleMeshes.size(); id++)
 
 	mov	DWORD PTR _id$3[ebp], 0
 	jmp	SHORT $LN4@Save
@@ -15670,7 +15758,7 @@ $LN4@Save:
 	cmp	DWORD PTR _id$3[ebp], eax
 	jge	SHORT $LN1@Save
 
-; 230  :         m_TriangleMeshes[id]->Write(filename);
+; 253  :         m_TriangleMeshes[id]->Write(filename);
 
 	mov	ecx, DWORD PTR _filename$[ebp]
 	push	ecx
@@ -15692,7 +15780,7 @@ $LN4@Save:
 	jmp	SHORT $LN2@Save
 $LN1@Save:
 
-; 231  :  }
+; 254  :  }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -15720,15 +15808,15 @@ _id$3 = -4						; size = 4
 ?ClearMesh@MySphere@@AAEXXZ PROC			; MySphere::ClearMesh
 ; _this$ = ecx
 
-; 259  : {
+; 282  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 20					; 00000014H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 260  :     // remove the mesh
-; 261  :     for(int id=0; id < (int)m_TriangleMeshes.size(); id++)
+; 283  :     // remove the mesh
+; 284  :     for(int id=0; id < (int)m_TriangleMeshes.size(); id++)
 
 	mov	DWORD PTR _id$3[ebp], 0
 	jmp	SHORT $LN4@ClearMesh
@@ -15743,7 +15831,7 @@ $LN4@ClearMesh:
 	cmp	DWORD PTR _id$3[ebp], eax
 	jge	SHORT $LN3@ClearMesh
 
-; 262  :         delete m_TriangleMeshes[id];
+; 285  :         delete m_TriangleMeshes[id];
 
 	mov	ecx, DWORD PTR _id$3[ebp]
 	push	ecx
@@ -15767,8 +15855,8 @@ $LN8@ClearMesh:
 	jmp	SHORT $LN2@ClearMesh
 $LN3@ClearMesh:
 
-; 263  : 
-; 264  :     if(m_TriangleMeshes.size())
+; 286  : 
+; 287  :     if(m_TriangleMeshes.size())
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 36					; 00000024H
@@ -15776,14 +15864,14 @@ $LN3@ClearMesh:
 	test	eax, eax
 	je	SHORT $LN1@ClearMesh
 
-; 265  :         m_TriangleMeshes.clear();
+; 288  :         m_TriangleMeshes.clear();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 36					; 00000024H
 	call	?clear@?$vector@PAVSTTriangleMesh@@V?$allocator@PAVSTTriangleMesh@@@std@@@std@@QAEXXZ ; std::vector<STTriangleMesh *,std::allocator<STTriangleMesh *> >::clear
 $LN1@ClearMesh:
 
-; 266  : }
+; 289  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -15802,30 +15890,30 @@ _c$ = 20						; size = 4
 ?MakeTIndices@MySphere@@AAE?AUTriangleIndices@@HHH@Z PROC ; MySphere::MakeTIndices
 ; _this$ = ecx
 
-; 45   : {
+; 46   : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 16					; 00000010H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 46   :     TriangleIndices T;
-; 47   :     T.i1 = a;
+; 47   :     TriangleIndices T;
+; 48   :     T.i1 = a;
 
 	mov	eax, DWORD PTR _a$[ebp]
 	mov	DWORD PTR _T$[ebp], eax
 
-; 48   :     T.i2 = b;
+; 49   :     T.i2 = b;
 
 	mov	ecx, DWORD PTR _b$[ebp]
 	mov	DWORD PTR _T$[ebp+4], ecx
 
-; 49   :     T.i3 = c;
+; 50   :     T.i3 = c;
 
 	mov	edx, DWORD PTR _c$[ebp]
 	mov	DWORD PTR _T$[ebp+8], edx
 
-; 50   :     return(T);
+; 51   :     return(T);
 
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 	mov	ecx, DWORD PTR _T$[ebp]
@@ -15836,7 +15924,7 @@ _c$ = 20						; size = 4
 	mov	DWORD PTR [eax+8], ecx
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 51   : }
+; 52   : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -15863,7 +15951,7 @@ _vertices$ = 12						; size = 4
 ?Offset@MySphere@@AAEHHPAV?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@@Z PROC ; MySphere::Offset
 ; _this$ = ecx
 
-; 58   : {
+; 59   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -15871,7 +15959,7 @@ _vertices$ = 12						; size = 4
 	push	esi
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 59   : 	float pos = (1.0 + sqrtf(5.0)) / 2.0;
+; 60   : 	float pos = (1.0 + sqrtf(5.0)) / 2.0;
 
 	push	ecx
 	movss	xmm0, DWORD PTR __real@40a00000
@@ -15885,7 +15973,7 @@ _vertices$ = 12						; size = 4
 	cvtsd2ss xmm0, xmm0
 	movss	DWORD PTR _pos$[ebp], xmm0
 
-; 60   : 	float old = sqrtf(1 + (pos * pos));
+; 61   : 	float old = sqrtf(1 + (pos * pos));
 
 	movss	xmm0, DWORD PTR _pos$[ebp]
 	mulss	xmm0, DWORD PTR _pos$[ebp]
@@ -15896,7 +15984,7 @@ _vertices$ = 12						; size = 4
 	add	esp, 4
 	fstp	DWORD PTR _old$[ebp]
 
-; 61   : 	float xsquare = vertices->at(pointIndex).x * vertices->at(pointIndex).x;
+; 62   : 	float xsquare = vertices->at(pointIndex).x * vertices->at(pointIndex).x;
 
 	mov	eax, DWORD PTR _pointIndex$[ebp]
 	push	eax
@@ -15911,7 +15999,7 @@ _vertices$ = 12						; size = 4
 	mulss	xmm0, DWORD PTR [eax]
 	movss	DWORD PTR _xsquare$[ebp], xmm0
 
-; 62   : 	float ysquare = vertices->at(pointIndex).y * vertices->at(pointIndex).y;
+; 63   : 	float ysquare = vertices->at(pointIndex).y * vertices->at(pointIndex).y;
 
 	mov	edx, DWORD PTR _pointIndex$[ebp]
 	push	edx
@@ -15926,7 +16014,7 @@ _vertices$ = 12						; size = 4
 	mulss	xmm0, DWORD PTR [eax+4]
 	movss	DWORD PTR _ysquare$[ebp], xmm0
 
-; 63   : 	float zsquare = vertices->at(pointIndex).z * vertices->at(pointIndex).z;
+; 64   : 	float zsquare = vertices->at(pointIndex).z * vertices->at(pointIndex).z;
 
 	mov	ecx, DWORD PTR _pointIndex$[ebp]
 	push	ecx
@@ -15941,7 +16029,7 @@ _vertices$ = 12						; size = 4
 	mulss	xmm0, DWORD PTR [eax+8]
 	movss	DWORD PTR _zsquare$[ebp], xmm0
 
-; 64   : 	float fraction = sqrtf(xsquare + ysquare + zsquare);
+; 65   : 	float fraction = sqrtf(xsquare + ysquare + zsquare);
 
 	movss	xmm0, DWORD PTR _xsquare$[ebp]
 	addss	xmm0, DWORD PTR _ysquare$[ebp]
@@ -15952,14 +16040,14 @@ _vertices$ = 12						; size = 4
 	add	esp, 4
 	fstp	DWORD PTR _fraction$[ebp]
 
-; 65   : 	float ratio = (old / fraction);
+; 66   : 	float ratio = (old / fraction);
 
 	movss	xmm0, DWORD PTR _old$[ebp]
 	divss	xmm0, DWORD PTR _fraction$[ebp]
 	movss	DWORD PTR _ratio$[ebp], xmm0
 
-; 66   : 
-; 67   : 	vertices->at(pointIndex).x = vertices->at(pointIndex).x * (ratio);
+; 67   : 
+; 68   : 	vertices->at(pointIndex).x = vertices->at(pointIndex).x * (ratio);
 
 	mov	eax, DWORD PTR _pointIndex$[ebp]
 	push	eax
@@ -15975,7 +16063,7 @@ _vertices$ = 12						; size = 4
 	movss	xmm0, DWORD PTR tv220[ebp]
 	movss	DWORD PTR [eax], xmm0
 
-; 68   : 	vertices->at(pointIndex).y = vertices->at(pointIndex).y * (ratio);
+; 69   : 	vertices->at(pointIndex).y = vertices->at(pointIndex).y * (ratio);
 
 	mov	edx, DWORD PTR _pointIndex$[ebp]
 	push	edx
@@ -15991,7 +16079,7 @@ _vertices$ = 12						; size = 4
 	movss	xmm0, DWORD PTR tv222[ebp]
 	movss	DWORD PTR [eax+4], xmm0
 
-; 69   : 	vertices->at(pointIndex).z = vertices->at(pointIndex).z * (ratio);
+; 70   : 	vertices->at(pointIndex).z = vertices->at(pointIndex).z * (ratio);
 
 	mov	ecx, DWORD PTR _pointIndex$[ebp]
 	push	ecx
@@ -16007,14 +16095,14 @@ _vertices$ = 12						; size = 4
 	movss	xmm0, DWORD PTR tv224[ebp]
 	movss	DWORD PTR [eax+8], xmm0
 
-; 70   : 
-; 71   : 	return m_globalCount + 1;
+; 71   : 
+; 72   : 	return m_globalCount + 1;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax+52]
 	add	eax, 1
 
-; 72   : }
+; 73   : }
 
 	pop	esi
 	mov	esp, ebp
@@ -16034,24 +16122,24 @@ _vertices$ = 20						; size = 4
 ?MidPoint@MySphere@@AAEHHHPAV?$multimap@JHU?$less@J@std@@V?$allocator@U?$pair@$$CBJH@std@@@2@@std@@PAV?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@3@@Z PROC ; MySphere::MidPoint
 ; _this$ = ecx
 
-; 78   : {
+; 79   : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 79   : 
-; 80   :         int index = 0;
+; 80   : 
+; 81   :         int index = 0;
 
 	mov	DWORD PTR _index$[ebp], 0
 
-; 81   : 
-; 82   :         return(index);
+; 82   : 
+; 83   :         return(index);
 
 	mov	eax, DWORD PTR _index$[ebp]
 
-; 83   : }
+; 84   : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -16062,14 +16150,14 @@ _TEXT	ENDS
 ; File c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp
 _TEXT	SEGMENT
 _this$ = -48						; size = 4
-_holderOne$2 = -44					; size = 4
-_holderTwo$3 = -40					; size = 4
-_holderThree$4 = -36					; size = 4
-_x$5 = -32						; size = 4
-_y$6 = -28						; size = 4
-_z$7 = -24						; size = 4
-_i$8 = -20						; size = 4
-_j$9 = -16						; size = 4
+_x$2 = -44						; size = 4
+_y$3 = -40						; size = 4
+_z$4 = -36						; size = 4
+_holderOne$5 = -32					; size = 4
+_holderTwo$6 = -28					; size = 4
+_holderThree$7 = -24					; size = 4
+_j$8 = -20						; size = 4
+_i$9 = -16						; size = 4
 __$EHRec$ = -12						; size = 12
 _tmesh$ = 8						; size = 4
 _face$ = 12						; size = 16
@@ -16078,7 +16166,7 @@ _nvert$ = 44						; size = 4
 ?GenerateMesh@MySphere@@AAEXPAVSTTriangleMesh@@V?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@V?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@4@H@Z PROC ; MySphere::GenerateMesh
 ; _this$ = ecx
 
-; 90   : {
+; 91   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -16091,67 +16179,67 @@ _nvert$ = 44						; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
 
-; 91   : 
-; 92   : 	for (int j = 0; j < vertices.size(); j++)
+; 92   : 
+; 93   : 	for (int j = 0; j < vertices.size(); j++)
 
-	mov	DWORD PTR _j$9[ebp], 0
+	mov	DWORD PTR _j$8[ebp], 0
 	jmp	SHORT $LN4@GenerateMe
 $LN2@GenerateMe:
-	mov	eax, DWORD PTR _j$9[ebp]
+	mov	eax, DWORD PTR _j$8[ebp]
 	add	eax, 1
-	mov	DWORD PTR _j$9[ebp], eax
+	mov	DWORD PTR _j$8[ebp], eax
 $LN4@GenerateMe:
 	lea	ecx, DWORD PTR _vertices$[ebp]
 	call	?size@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QBEIXZ ; std::vector<STVector3,std::allocator<STVector3> >::size
-	cmp	DWORD PTR _j$9[ebp], eax
+	cmp	DWORD PTR _j$8[ebp], eax
 	jae	$LN3@GenerateMe
 
-; 93   : 	{
-; 94   : 		float x = 0;
+; 94   : 	{
+; 95   : 		float x = 0;
 
 	xorps	xmm0, xmm0
-	movss	DWORD PTR _x$5[ebp], xmm0
+	movss	DWORD PTR _x$2[ebp], xmm0
 
-; 95   : 		float y = 0;
-
-	xorps	xmm0, xmm0
-	movss	DWORD PTR _y$6[ebp], xmm0
-
-; 96   : 		float z = 0;
+; 96   : 		float y = 0;
 
 	xorps	xmm0, xmm0
-	movss	DWORD PTR _z$7[ebp], xmm0
+	movss	DWORD PTR _y$3[ebp], xmm0
 
-; 97   : 
-; 98   : 		x = vertices.at(j).x;
+; 97   : 		float z = 0;
 
-	mov	ecx, DWORD PTR _j$9[ebp]
+	xorps	xmm0, xmm0
+	movss	DWORD PTR _z$4[ebp], xmm0
+
+; 98   : 
+; 99   : 		x = vertices.at(j).x;
+
+	mov	ecx, DWORD PTR _j$8[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _vertices$[ebp]
 	call	?at@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEAAUSTVector3@@I@Z ; std::vector<STVector3,std::allocator<STVector3> >::at
 	movss	xmm0, DWORD PTR [eax]
-	movss	DWORD PTR _x$5[ebp], xmm0
+	movss	DWORD PTR _x$2[ebp], xmm0
 
-; 99   : 		y = vertices.at(j).y;
+; 100  : 		y = vertices.at(j).y;
 
-	mov	edx, DWORD PTR _j$9[ebp]
+	mov	edx, DWORD PTR _j$8[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _vertices$[ebp]
 	call	?at@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEAAUSTVector3@@I@Z ; std::vector<STVector3,std::allocator<STVector3> >::at
 	movss	xmm0, DWORD PTR [eax+4]
-	movss	DWORD PTR _y$6[ebp], xmm0
+	movss	DWORD PTR _y$3[ebp], xmm0
 
-; 100  : 		z = vertices.at(j).z;
+; 101  : 		z = vertices.at(j).z;
 
-	mov	eax, DWORD PTR _j$9[ebp]
+	mov	eax, DWORD PTR _j$8[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _vertices$[ebp]
 	call	?at@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEAAUSTVector3@@I@Z ; std::vector<STVector3,std::allocator<STVector3> >::at
 	movss	xmm0, DWORD PTR [eax+8]
-	movss	DWORD PTR _z$7[ebp], xmm0
+	movss	DWORD PTR _z$4[ebp], xmm0
 
-; 101  : 
-; 102  : 		tmesh->AddVertex(x, y, z);
+; 102  : 
+; 103  : 		tmesh->AddVertex(x, y, z);
 
 	push	ecx
 	xorps	xmm0, xmm0
@@ -16160,99 +16248,131 @@ $LN4@GenerateMe:
 	xorps	xmm0, xmm0
 	movss	DWORD PTR [esp], xmm0
 	push	ecx
-	movss	xmm0, DWORD PTR _z$7[ebp]
+	movss	xmm0, DWORD PTR _z$4[ebp]
 	movss	DWORD PTR [esp], xmm0
 	push	ecx
-	movss	xmm0, DWORD PTR _y$6[ebp]
+	movss	xmm0, DWORD PTR _y$3[ebp]
 	movss	DWORD PTR [esp], xmm0
 	push	ecx
-	movss	xmm0, DWORD PTR _x$5[ebp]
+	movss	xmm0, DWORD PTR _x$2[ebp]
 	movss	DWORD PTR [esp], xmm0
 	mov	ecx, DWORD PTR _tmesh$[ebp]
 	call	?AddVertex@STTriangleMesh@@QAEIMMMMM@Z	; STTriangleMesh::AddVertex
 
-; 103  : 	}
+; 104  : 	}
 
 	jmp	$LN2@GenerateMe
 $LN3@GenerateMe:
 
-; 104  : 	//std::cout << "Got here\n";
-; 105  : 	//Adds the faces to STTrianglesMesh
-; 106  : 	for (int i = 0; i < face.size(); i++)
+; 105  : 	//std::cout << "Got here\n";
+; 106  : 	//Adds the faces to STTrianglesMesh
+; 107  : 	for (int i = 0; i < face.size(); i++)
 
-	mov	DWORD PTR _i$8[ebp], 0
+	mov	DWORD PTR _i$9[ebp], 0
 	jmp	SHORT $LN7@GenerateMe
 $LN5@GenerateMe:
-	mov	ecx, DWORD PTR _i$8[ebp]
+	mov	ecx, DWORD PTR _i$9[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _i$8[ebp], ecx
+	mov	DWORD PTR _i$9[ebp], ecx
 $LN7@GenerateMe:
 	lea	ecx, DWORD PTR _face$[ebp]
 	call	?size@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QBEIXZ ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::size
-	cmp	DWORD PTR _i$8[ebp], eax
-	jae	SHORT $LN6@GenerateMe
+	cmp	DWORD PTR _i$9[ebp], eax
+	jae	$LN6@GenerateMe
 
-; 107  : 	{
-; 108  : 		//std::cout << "i: " << i << "\n";
-; 109  : 		int holderOne = 0;
+; 108  : 	{
+; 109  : 		//std::cout << "i: " << i << "\n";
+; 110  : 		int holderOne = 0;
 
-	mov	DWORD PTR _holderOne$2[ebp], 0
+	mov	DWORD PTR _holderOne$5[ebp], 0
 
-; 110  : 		int holderTwo = 0;
+; 111  : 		int holderTwo = 0;
 
-	mov	DWORD PTR _holderTwo$3[ebp], 0
+	mov	DWORD PTR _holderTwo$6[ebp], 0
 
-; 111  : 		int holderThree = 0;
+; 112  : 		int holderThree = 0;
 
-	mov	DWORD PTR _holderThree$4[ebp], 0
+	mov	DWORD PTR _holderThree$7[ebp], 0
 
-; 112  : 
-; 113  : 		//Gets the position of the faces in the right order.
-; 114  : 		holderOne = face.at(i).i1;
+; 113  : 
+; 114  : 		//Gets the position of the faces in the right order.
+; 115  : 		holderOne = face.at(i).i1;
 
-	mov	edx, DWORD PTR _i$8[ebp]
+	mov	edx, DWORD PTR _i$9[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _face$[ebp]
 	call	?at@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAEAAUTriangleIndices@@I@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::at
 	mov	eax, DWORD PTR [eax]
-	mov	DWORD PTR _holderOne$2[ebp], eax
+	mov	DWORD PTR _holderOne$5[ebp], eax
 
-; 115  : 		holderTwo = face.at(i).i2;
+; 116  : 		holderTwo = face.at(i).i2;
 
-	mov	ecx, DWORD PTR _i$8[ebp]
+	mov	ecx, DWORD PTR _i$9[ebp]
 	push	ecx
 	lea	ecx, DWORD PTR _face$[ebp]
 	call	?at@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAEAAUTriangleIndices@@I@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::at
 	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR _holderTwo$3[ebp], edx
+	mov	DWORD PTR _holderTwo$6[ebp], edx
 
-; 116  : 		holderThree = face.at(i).i3;
+; 117  : 		holderThree = face.at(i).i3;
 
-	mov	eax, DWORD PTR _i$8[ebp]
+	mov	eax, DWORD PTR _i$9[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _face$[ebp]
 	call	?at@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAEAAUTriangleIndices@@I@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::at
 	mov	ecx, DWORD PTR [eax+8]
-	mov	DWORD PTR _holderThree$4[ebp], ecx
+	mov	DWORD PTR _holderThree$7[ebp], ecx
 
-; 117  : 
-; 118  : 		tmesh->AddFace(holderOne, holderTwo, holderThree);
+; 118  : 
+; 119  : 		tmesh->AddFace(holderOne, holderTwo, holderThree);
 
-	mov	edx, DWORD PTR _holderThree$4[ebp]
+	mov	edx, DWORD PTR _holderThree$7[ebp]
 	push	edx
-	mov	eax, DWORD PTR _holderTwo$3[ebp]
+	mov	eax, DWORD PTR _holderTwo$6[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _holderOne$2[ebp]
+	mov	ecx, DWORD PTR _holderOne$5[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _tmesh$[ebp]
 	call	?AddFace@STTriangleMesh@@QAEIIII@Z	; STTriangleMesh::AddFace
 
-; 119  : 	}
+; 120  : 
+; 121  : 		if (i == 128)
 
-	jmp	SHORT $LN5@GenerateMe
+	cmp	DWORD PTR _i$9[ebp], 128		; 00000080H
+	jne	SHORT $LN8@GenerateMe
+
+; 122  : 		{
+; 123  : 			std::cout << holderOne << " " << holderTwo << " " << holderThree;
+
+	mov	edx, DWORD PTR _holderThree$7[ebp]
+	push	edx
+	push	OFFSET $SG40873
+	mov	eax, DWORD PTR _holderTwo$6[ebp]
+	push	eax
+	push	OFFSET $SG40874
+	mov	ecx, DWORD PTR _holderOne$5[ebp]
+	push	ecx
+	mov	ecx, OFFSET ?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A ; std::cout
+	call	??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z ; std::basic_ostream<char,std::char_traits<char> >::operator<<
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	mov	ecx, eax
+	call	??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z ; std::basic_ostream<char,std::char_traits<char> >::operator<<
+	push	eax
+	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
+	add	esp, 8
+	mov	ecx, eax
+	call	??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z ; std::basic_ostream<char,std::char_traits<char> >::operator<<
+$LN8@GenerateMe:
+
+; 124  : 		}
+; 125  : 	}
+
+	jmp	$LN5@GenerateMe
 $LN6@GenerateMe:
 
-; 120  : }
+; 126  : }
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
 	lea	ecx, DWORD PTR _face$[ebp]
@@ -16289,14 +16409,14 @@ _vertices$ = 20						; size = 4
 ?SubDivideTriangles@MySphere@@AAEXHPAV?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@0PAV?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@3@@Z PROC ; MySphere::SubDivideTriangles
 ; _this$ = ecx
 
-; 125  : {
+; 131  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 126  : }
+; 132  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -16314,48 +16434,48 @@ _i$4 = -4						; size = 4
 ?InitFaces@MySphere@@AAEXXZ PROC			; MySphere::InitFaces
 ; _this$ = ecx
 
-; 136  : {
+; 142  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 36					; 00000024H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 137  : 	/* Saving these so we know how to add faces.
-; 138  : 	//m_faces is now a vector with 20 triangles.
-; 139  : 
-; 140  : 	//Triangle Fan Top = 0, 1, 2, 3, 4
-; 141  : 	m_faces.push_back(MakeTIndices(5, 4, 9));
-; 142  : 	m_faces.push_back(MakeTIndices(5, 9, 1));
-; 143  : 	m_faces.push_back(MakeTIndices(5, 1, 0));
-; 144  : 	m_faces.push_back(MakeTIndices(5, 0, 11));
-; 145  : 	m_faces.push_back(MakeTIndices(5, 11, 4));
-; 146  : 
-; 147  : 	//Triangle Fan Bottom = 5, 6, 7, 8, 9
-; 148  : 	m_faces.push_back(MakeTIndices(6, 3, 8));
-; 149  : 	m_faces.push_back(MakeTIndices(6, 8, 7));
-; 150  : 	m_faces.push_back(MakeTIndices(6, 7, 10));
-; 151  : 	m_faces.push_back(MakeTIndices(6, 10, 2));
-; 152  : 	m_faces.push_back(MakeTIndices(6, 2, 3));
-; 153  : 
-; 154  : 	//Triangle Strip = 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-; 155  : 	m_faces.push_back(MakeTIndices(4, 3, 9));
-; 156  : 	m_faces.push_back(MakeTIndices(9, 3, 8));
-; 157  : 	m_faces.push_back(MakeTIndices(9, 8, 1));
-; 158  : 	m_faces.push_back(MakeTIndices(1, 8, 7));
-; 159  : 	m_faces.push_back(MakeTIndices(1, 7, 0));
-; 160  : 	m_faces.push_back(MakeTIndices(10, 7, 0));
-; 161  : 	m_faces.push_back(MakeTIndices(11, 10, 0));
-; 162  : 	m_faces.push_back(MakeTIndices(2, 10, 11));
-; 163  : 	m_faces.push_back(MakeTIndices(4, 2, 11));
-; 164  : 	m_faces.push_back(MakeTIndices(3, 2, 4));
-; 165  : 
-; 166  : 	//20 faces total.
-; 167  : 	*/
-; 168  : 
-; 169  : 
-; 170  : 	//Formulas to add faces to the plane.
-; 171  : 	for (int i = 0; i < 128; i++)
+; 143  : 	/* Saving these so we know how to add faces.
+; 144  : 	//m_faces is now a vector with 20 triangles.
+; 145  : 
+; 146  : 	//Triangle Fan Top = 0, 1, 2, 3, 4
+; 147  : 	m_faces.push_back(MakeTIndices(5, 4, 9));
+; 148  : 	m_faces.push_back(MakeTIndices(5, 9, 1));
+; 149  : 	m_faces.push_back(MakeTIndices(5, 1, 0));
+; 150  : 	m_faces.push_back(MakeTIndices(5, 0, 11));
+; 151  : 	m_faces.push_back(MakeTIndices(5, 11, 4));
+; 152  : 
+; 153  : 	//Triangle Fan Bottom = 5, 6, 7, 8, 9
+; 154  : 	m_faces.push_back(MakeTIndices(6, 3, 8));
+; 155  : 	m_faces.push_back(MakeTIndices(6, 8, 7));
+; 156  : 	m_faces.push_back(MakeTIndices(6, 7, 10));
+; 157  : 	m_faces.push_back(MakeTIndices(6, 10, 2));
+; 158  : 	m_faces.push_back(MakeTIndices(6, 2, 3));
+; 159  : 
+; 160  : 	//Triangle Strip = 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+; 161  : 	m_faces.push_back(MakeTIndices(4, 3, 9));
+; 162  : 	m_faces.push_back(MakeTIndices(9, 3, 8));
+; 163  : 	m_faces.push_back(MakeTIndices(9, 8, 1));
+; 164  : 	m_faces.push_back(MakeTIndices(1, 8, 7));
+; 165  : 	m_faces.push_back(MakeTIndices(1, 7, 0));
+; 166  : 	m_faces.push_back(MakeTIndices(10, 7, 0));
+; 167  : 	m_faces.push_back(MakeTIndices(11, 10, 0));
+; 168  : 	m_faces.push_back(MakeTIndices(2, 10, 11));
+; 169  : 	m_faces.push_back(MakeTIndices(4, 2, 11));
+; 170  : 	m_faces.push_back(MakeTIndices(3, 2, 4));
+; 171  : 
+; 172  : 	//20 faces total.
+; 173  : 	*/
+; 174  : 
+; 175  : 
+; 176  : 	//Formulas to add faces to the plane.
+; 177  : 	for (int i = 0; i < 128; i++)
 
 	mov	DWORD PTR _i$4[ebp], 0
 	jmp	SHORT $LN4@InitFaces
@@ -16367,10 +16487,10 @@ $LN4@InitFaces:
 	cmp	DWORD PTR _i$4[ebp], 128		; 00000080H
 	jge	$LN1@InitFaces
 
-; 172  : 	{
-; 173  : 		for (int j = 1; j <= 128; j++)
+; 178  : 	{
+; 179  : 		for (int j = 0; j < 128; j++)
 
-	mov	DWORD PTR _j$3[ebp], 1
+	mov	DWORD PTR _j$3[ebp], 0
 	jmp	SHORT $LN7@InitFaces
 $LN5@InitFaces:
 	mov	ecx, DWORD PTR _j$3[ebp]
@@ -16378,28 +16498,26 @@ $LN5@InitFaces:
 	mov	DWORD PTR _j$3[ebp], ecx
 $LN7@InitFaces:
 	cmp	DWORD PTR _j$3[ebp], 128		; 00000080H
-	jg	$LN6@InitFaces
+	jge	$LN6@InitFaces
 
-; 174  : 		{
-; 175  : 			m_faces.push_back(MakeTIndices((128 * i) + j, (128 * i) + j + 1, (128 * (i+1)) + j + 1));
+; 180  : 		{
+; 181  : 			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * i) + j + 1, (129 * (i+1)) + j + 1));
 
 	mov	edx, DWORD PTR _i$4[ebp]
 	add	edx, 1
-	shl	edx, 7
-	mov	eax, DWORD PTR _j$3[ebp]
-	lea	ecx, DWORD PTR [edx+eax+1]
-	push	ecx
-	mov	edx, DWORD PTR _i$4[ebp]
-	shl	edx, 7
-	mov	eax, DWORD PTR _j$3[ebp]
-	lea	ecx, DWORD PTR [edx+eax+1]
-	push	ecx
-	mov	edx, DWORD PTR _i$4[ebp]
-	shl	edx, 7
-	add	edx, DWORD PTR _j$3[ebp]
+	imul	eax, edx, 129
+	mov	ecx, DWORD PTR _j$3[ebp]
+	lea	edx, DWORD PTR [eax+ecx+1]
 	push	edx
-	lea	eax, DWORD PTR $T2[ebp]
+	imul	eax, DWORD PTR _i$4[ebp], 129
+	mov	ecx, DWORD PTR _j$3[ebp]
+	lea	edx, DWORD PTR [eax+ecx+1]
+	push	edx
+	imul	eax, DWORD PTR _i$4[ebp], 129
+	add	eax, DWORD PTR _j$3[ebp]
 	push	eax
+	lea	ecx, DWORD PTR $T2[ebp]
+	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?MakeTIndices@MySphere@@AAE?AUTriangleIndices@@HHH@Z ; MySphere::MakeTIndices
 	push	eax
@@ -16407,21 +16525,20 @@ $LN7@InitFaces:
 	add	ecx, 20					; 00000014H
 	call	?push_back@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAEX$$QAUTriangleIndices@@@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::push_back
 
-; 176  : 			m_faces.push_back(MakeTIndices((128 * i) + j, (128 * (i + 1)) + j, (128 * (i + 1)) + j + 1));
+; 182  : 			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * (i + 1)) + j + 1, (129 * (i + 1)) + j));
 
-	mov	ecx, DWORD PTR _i$4[ebp]
-	add	ecx, 1
-	shl	ecx, 7
-	mov	edx, DWORD PTR _j$3[ebp]
-	lea	eax, DWORD PTR [ecx+edx+1]
+	mov	edx, DWORD PTR _i$4[ebp]
+	add	edx, 1
+	imul	eax, edx, 129
+	add	eax, DWORD PTR _j$3[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _i$4[ebp]
 	add	ecx, 1
-	shl	ecx, 7
-	add	ecx, DWORD PTR _j$3[ebp]
+	imul	edx, ecx, 129
+	mov	eax, DWORD PTR _j$3[ebp]
+	lea	ecx, DWORD PTR [edx+eax+1]
 	push	ecx
-	mov	edx, DWORD PTR _i$4[ebp]
-	shl	edx, 7
+	imul	edx, DWORD PTR _i$4[ebp], 129
 	add	edx, DWORD PTR _j$3[ebp]
 	push	edx
 	lea	eax, DWORD PTR $T1[ebp]
@@ -16433,18 +16550,18 @@ $LN7@InitFaces:
 	add	ecx, 20					; 00000014H
 	call	?push_back@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAEX$$QAUTriangleIndices@@@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::push_back
 
-; 177  : 		}
+; 183  : 		}
 
 	jmp	$LN5@InitFaces
 $LN6@InitFaces:
 
-; 178  : 	}
+; 184  : 	}
 
 	jmp	$LN2@InitFaces
 $LN1@InitFaces:
 
-; 179  : 
-; 180  : }
+; 185  : 
+; 186  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -16455,82 +16572,80 @@ _TEXT	ENDS
 ; File c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp
 _TEXT	SEGMENT
 $T1 = -36						; size = 12
-tv132 = -24						; size = 8
+tv129 = -24						; size = 8
 _pos$ = -16						; size = 4
 _this$ = -12						; size = 4
-_j$2 = -8						; size = 4
-_i$3 = -4						; size = 4
+_i$2 = -8						; size = 4
+_j$3 = -4						; size = 4
 ?InitVertices@MySphere@@AAEXXZ PROC			; MySphere::InitVertices
 ; _this$ = ecx
 
-; 185  : {
+; 191  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 36					; 00000024H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 186  :     m_vertices.clear();
+; 192  :     m_vertices.clear();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 4
 	call	?clear@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEXXZ ; std::vector<STVector3,std::allocator<STVector3> >::clear
 
-; 187  : 
-; 188  :     float pos = (1.0 + sqrtf(5.0))/2.0;
+; 193  : 
+; 194  :     float pos = (1.0 + sqrtf(5.0))/2.0;
 
 	push	ecx
 	movss	xmm0, DWORD PTR __real@40a00000
 	movss	DWORD PTR [esp], xmm0
 	call	_sqrtf
 	add	esp, 4
-	fstp	QWORD PTR tv132[ebp]
-	movsd	xmm0, QWORD PTR tv132[ebp]
+	fstp	QWORD PTR tv129[ebp]
+	movsd	xmm0, QWORD PTR tv129[ebp]
 	addsd	xmm0, QWORD PTR __real@3ff0000000000000
 	divsd	xmm0, QWORD PTR __real@4000000000000000
 	cvtsd2ss xmm0, xmm0
 	movss	DWORD PTR _pos$[ebp], xmm0
 
-; 189  : 
-; 190  : 	for (int i = 0; i < 129; i++)
+; 195  : 
+; 196  : 	for (int i = 0; i < 129; i++)
 
-	mov	DWORD PTR _i$3[ebp], 0
+	mov	DWORD PTR _i$2[ebp], 0
 	jmp	SHORT $LN4@InitVertic
 $LN2@InitVertic:
-	mov	eax, DWORD PTR _i$3[ebp]
+	mov	eax, DWORD PTR _i$2[ebp]
 	add	eax, 1
-	mov	DWORD PTR _i$3[ebp], eax
+	mov	DWORD PTR _i$2[ebp], eax
 $LN4@InitVertic:
-	cmp	DWORD PTR _i$3[ebp], 129		; 00000081H
+	cmp	DWORD PTR _i$2[ebp], 129		; 00000081H
 	jge	SHORT $LN3@InitVertic
 
-; 191  : 	{
-; 192  : 		for (int j = 0; j < 129; j++)
+; 197  : 	{
+; 198  : 		for (int j = 0; j < 129; j++)
 
-	mov	DWORD PTR _j$2[ebp], 0
+	mov	DWORD PTR _j$3[ebp], 0
 	jmp	SHORT $LN7@InitVertic
 $LN5@InitVertic:
-	mov	ecx, DWORD PTR _j$2[ebp]
+	mov	ecx, DWORD PTR _j$3[ebp]
 	add	ecx, 1
-	mov	DWORD PTR _j$2[ebp], ecx
+	mov	DWORD PTR _j$3[ebp], ecx
 $LN7@InitVertic:
-	cmp	DWORD PTR _j$2[ebp], 129		; 00000081H
+	cmp	DWORD PTR _j$3[ebp], 129		; 00000081H
 	jge	SHORT $LN6@InitVertic
 
-; 193  : 		{
-; 194  : 			m_vertices.push_back(STVector3(i * 0.2, i * 0.2, j * 0.2));
+; 199  : 		{
+; 200  : 			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2)); //Was i * 0.2, 0, j * 0.2
 
-	cvtsi2sd xmm0, DWORD PTR _j$2[ebp]
+	cvtsi2sd xmm0, DWORD PTR _j$3[ebp]
 	mulsd	xmm0, QWORD PTR __real@3fc999999999999a
 	cvtsd2ss xmm0, xmm0
 	push	ecx
 	movss	DWORD PTR [esp], xmm0
-	cvtsi2sd xmm0, DWORD PTR _i$3[ebp]
-	mulsd	xmm0, QWORD PTR __real@3fc999999999999a
-	cvtsd2ss xmm0, xmm0
 	push	ecx
+	xorps	xmm0, xmm0
 	movss	DWORD PTR [esp], xmm0
-	cvtsi2sd xmm0, DWORD PTR _i$3[ebp]
+	cvtsi2sd xmm0, DWORD PTR _i$2[ebp]
 	mulsd	xmm0, QWORD PTR __real@3fc999999999999a
 	cvtsd2ss xmm0, xmm0
 	push	ecx
@@ -16542,17 +16657,17 @@ $LN7@InitVertic:
 	add	ecx, 4
 	call	?push_back@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEX$$QAUSTVector3@@@Z ; std::vector<STVector3,std::allocator<STVector3> >::push_back
 
-; 195  : 		}
+; 201  : 		}
 
 	jmp	SHORT $LN5@InitVertic
 $LN6@InitVertic:
 
-; 196  : 	}
+; 202  : 	}
 
-	jmp	$LN2@InitVertic
+	jmp	SHORT $LN2@InitVertic
 $LN3@InitVertic:
 
-; 197  : }
+; 203  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -22729,19 +22844,19 @@ _this$ = -4						; size = 4
 ?FileName@MySphere@@QAEPADXZ PROC			; MySphere::FileName
 ; _this$ = ecx
 
-; 36   : {
+; 37   : {
 
 	push	ebp
 	mov	ebp, esp
 	push	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 37   :     return(m_pFileName);
+; 38   :     return(m_pFileName);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax]
 
-; 38   : }
+; 39   : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -22756,14 +22871,14 @@ _id$ = 8						; size = 4
 ?GetTriangleMesh@MySphere@@QAEPAVSTTriangleMesh@@H@Z PROC ; MySphere::GetTriangleMesh
 ; _this$ = ecx
 
-; 249  : {
+; 272  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 250  :     return(m_TriangleMeshes[id]);
+; 273  :     return(m_TriangleMeshes[id]);
 
 	mov	eax, DWORD PTR _id$[ebp]
 	push	eax
@@ -22772,7 +22887,7 @@ _id$ = 8						; size = 4
 	call	??A?$vector@PAVSTTriangleMesh@@V?$allocator@PAVSTTriangleMesh@@@std@@@std@@QAEAAPAVSTTriangleMesh@@I@Z ; std::vector<STTriangleMesh *,std::allocator<STTriangleMesh *> >::operator[]
 	mov	eax, DWORD PTR [eax]
 
-; 251  : }
+; 274  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -22788,7 +22903,7 @@ ___$ReturnUdt$ = 8					; size = 4
 ?GetTriangleMesh@MySphere@@QAE?AV?$vector@PAVSTTriangleMesh@@V?$allocator@PAVSTTriangleMesh@@@std@@@std@@XZ PROC ; MySphere::GetTriangleMesh
 ; _this$ = ecx
 
-; 239  : {
+; 262  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -22796,7 +22911,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	DWORD PTR $T1[ebp], 0
 
-; 240  :     return(m_TriangleMeshes);
+; 263  :     return(m_TriangleMeshes);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	eax, 36					; 00000024H
@@ -22808,7 +22923,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR $T1[ebp], ecx
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 241  : }
+; 264  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -22818,20 +22933,25 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp
 ; File c:\users\michael mcnally\source\repos\final proj\src\mainsrc\mysphere.cpp
 _TEXT	SEGMENT
-$T2 = -44						; size = 4
-tv169 = -40						; size = 4
-$T3 = -36						; size = 4
-$T4 = -32						; size = 4
-_dog$ = -28						; size = 4
-tv89 = -24						; size = 4
-$T5 = -20						; size = 4
+$T2 = -64						; size = 4
+tv190 = -60						; size = 4
+$T3 = -56						; size = 4
+$T4 = -52						; size = 4
+_temp$5 = -48						; size = 4
+_yArray$ = -44						; size = 4
+_dog$ = -40						; size = 4
+tv142 = -36						; size = 4
+$T6 = -32						; size = 4
+_arrayMan$ = -28					; size = 4
+_j$7 = -24						; size = 4
+_i$8 = -20						; size = 4
 _this$ = -16						; size = 4
 __$EHRec$ = -12						; size = 12
 _levels$ = 8						; size = 4
 ?Create@MySphere@@QAEXH@Z PROC				; MySphere::Create
 ; _this$ = ecx
 
-; 203  : {
+; 209  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -22840,33 +22960,33 @@ _levels$ = 8						; size = 4
 	mov	eax, DWORD PTR fs:0
 	push	eax
 	mov	DWORD PTR fs:0, esp
-	sub	esp, 32					; 00000020H
+	sub	esp, 52					; 00000034H
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 204  :     m_globalCount = 0;
+; 210  :     m_globalCount = 0;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+52], 0
 
-; 205  : 
-; 206  :     InitVertices();
+; 211  : 
+; 212  :     InitVertices();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InitVertices@MySphere@@AAEXXZ		; MySphere::InitVertices
 
-; 207  : 	InitFaces();
+; 213  : 	InitFaces();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?InitFaces@MySphere@@AAEXXZ		; MySphere::InitFaces
 
-; 208  : 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
+; 214  : 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
 
 	push	10					; 0000000aH
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 20					; 00000014H
 	call	?size@?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QBEIXZ ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::size
 	push	eax
-	push	OFFSET $SG40991
+	push	OFFSET $SG41036
 	push	OFFSET ?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A ; std::cout
 	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@PBD@Z ; std::operator<<<std::char_traits<char> >
 	add	esp, 8
@@ -22876,77 +22996,159 @@ _levels$ = 8						; size = 4
 	call	??$?6U?$char_traits@D@std@@@std@@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@0@AAV10@D@Z ; std::operator<<<std::char_traits<char> >
 	add	esp, 8
 
-; 209  : 
-; 210  : 	STTriangleMesh* dog = new STTriangleMesh();
+; 215  : 
+; 216  : 	//Creating our DiamondSquare Array
+; 217  : 	DiamondSquare arrayMan = DiamondSquare();
+
+	lea	ecx, DWORD PTR _arrayMan$[ebp]
+	call	??0DiamondSquare@@QAE@XZ		; DiamondSquare::DiamondSquare
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+
+; 218  : 	arrayMan.buildArray();
+
+	lea	ecx, DWORD PTR _arrayMan$[ebp]
+	call	?buildArray@DiamondSquare@@QAEXXZ	; DiamondSquare::buildArray
+
+; 219  : 	float ** yArray = arrayMan.getArray();
+
+	lea	ecx, DWORD PTR _arrayMan$[ebp]
+	call	?getArray@DiamondSquare@@QAEPAPAMXZ	; DiamondSquare::getArray
+	mov	DWORD PTR _yArray$[ebp], eax
+
+; 220  : 
+; 221  : 	//Changing the Y values of the vertices with the DiamondSquare Array
+; 222  : 	for (int i = 0; i < 129; i++)
+
+	mov	DWORD PTR _i$8[ebp], 0
+	jmp	SHORT $LN4@Create
+$LN2@Create:
+	mov	ecx, DWORD PTR _i$8[ebp]
+	add	ecx, 1
+	mov	DWORD PTR _i$8[ebp], ecx
+$LN4@Create:
+	cmp	DWORD PTR _i$8[ebp], 129		; 00000081H
+	jge	SHORT $LN3@Create
+
+; 223  : 	{
+; 224  : 		for (int j = 0; j < 129; j++)
+
+	mov	DWORD PTR _j$7[ebp], 0
+	jmp	SHORT $LN7@Create
+$LN5@Create:
+	mov	edx, DWORD PTR _j$7[ebp]
+	add	edx, 1
+	mov	DWORD PTR _j$7[ebp], edx
+$LN7@Create:
+	cmp	DWORD PTR _j$7[ebp], 129		; 00000081H
+	jge	SHORT $LN6@Create
+
+; 225  : 		{
+; 226  : 			float temp = yArray[i][j];
+
+	mov	eax, DWORD PTR _i$8[ebp]
+	mov	ecx, DWORD PTR _yArray$[ebp]
+	mov	edx, DWORD PTR [ecx+eax*4]
+	mov	eax, DWORD PTR _j$7[ebp]
+	movss	xmm0, DWORD PTR [edx+eax*4]
+	movss	DWORD PTR _temp$5[ebp], xmm0
+
+; 227  : 
+; 228  : 			m_vertices.at((129 * i) + j).y = temp;
+
+	imul	ecx, DWORD PTR _i$8[ebp], 129
+	add	ecx, DWORD PTR _j$7[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, 4
+	call	?at@?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAEAAUSTVector3@@I@Z ; std::vector<STVector3,std::allocator<STVector3> >::at
+	movss	xmm0, DWORD PTR _temp$5[ebp]
+	movss	DWORD PTR [eax+4], xmm0
+
+; 229  : 		}
+
+	jmp	SHORT $LN5@Create
+$LN6@Create:
+
+; 230  : 	}
+
+	jmp	SHORT $LN2@Create
+$LN3@Create:
+
+; 231  : 
+; 232  : 
+; 233  : 	STTriangleMesh* dog = new STTriangleMesh();
 
 	push	172					; 000000acH
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
-	mov	DWORD PTR $T5[ebp], eax
-	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	cmp	DWORD PTR $T5[ebp], 0
-	je	SHORT $LN3@Create
-	mov	ecx, DWORD PTR $T5[ebp]
+	mov	DWORD PTR $T6[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 1
+	cmp	DWORD PTR $T6[ebp], 0
+	je	SHORT $LN9@Create
+	mov	ecx, DWORD PTR $T6[ebp]
 	call	??0STTriangleMesh@@QAE@XZ		; STTriangleMesh::STTriangleMesh
-	mov	DWORD PTR tv89[ebp], eax
-	jmp	SHORT $LN4@Create
-$LN3@Create:
-	mov	DWORD PTR tv89[ebp], 0
-$LN4@Create:
-	mov	ecx, DWORD PTR tv89[ebp]
-	mov	DWORD PTR $T4[ebp], ecx
-	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	mov	edx, DWORD PTR $T4[ebp]
-	mov	DWORD PTR _dog$[ebp], edx
+	mov	DWORD PTR tv142[ebp], eax
+	jmp	SHORT $LN10@Create
+$LN9@Create:
+	mov	DWORD PTR tv142[ebp], 0
+$LN10@Create:
+	mov	edx, DWORD PTR tv142[ebp]
+	mov	DWORD PTR $T4[ebp], edx
+	mov	BYTE PTR __$EHRec$[ebp+8], 0
+	mov	eax, DWORD PTR $T4[ebp]
+	mov	DWORD PTR _dog$[ebp], eax
 
-; 211  : 	GenerateMesh(dog, m_faces, m_vertices, 0);
+; 234  : 	GenerateMesh(dog, m_faces, m_vertices, 0);
 
 	push	0
 	sub	esp, 16					; 00000010H
 	mov	ecx, esp
 	mov	DWORD PTR $T3[ebp], esp
-	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 4
-	push	eax
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, 4
+	push	edx
 	call	??0?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAE@ABV01@@Z ; std::vector<STVector3,std::allocator<STVector3> >::vector<STVector3,std::allocator<STVector3> >
-	mov	DWORD PTR tv169[ebp], eax
-	mov	DWORD PTR __$EHRec$[ebp+8], 1
+	mov	DWORD PTR tv190[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+8], 2
 	sub	esp, 16					; 00000010H
 	mov	ecx, esp
 	mov	DWORD PTR $T2[ebp], esp
-	mov	edx, DWORD PTR _this$[ebp]
-	add	edx, 20					; 00000014H
-	push	edx
-	call	??0?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAE@ABV01@@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::vector<TriangleIndices,std::allocator<TriangleIndices> >
-	mov	eax, DWORD PTR _dog$[ebp]
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 20					; 00000014H
 	push	eax
-	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	call	??0?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@QAE@ABV01@@Z ; std::vector<TriangleIndices,std::allocator<TriangleIndices> >::vector<TriangleIndices,std::allocator<TriangleIndices> >
+	mov	ecx, DWORD PTR _dog$[ebp]
+	push	ecx
+	mov	BYTE PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?GenerateMesh@MySphere@@AAEXPAVSTTriangleMesh@@V?$vector@UTriangleIndices@@V?$allocator@UTriangleIndices@@@std@@@std@@V?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@4@H@Z ; MySphere::GenerateMesh
 
-; 212  : 
-; 213  : 	m_TriangleMeshes.push_back(dog);
+; 235  : 
+; 236  : 	m_TriangleMeshes.push_back(dog);
 
-	lea	ecx, DWORD PTR _dog$[ebp]
-	push	ecx
+	lea	edx, DWORD PTR _dog$[ebp]
+	push	edx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 36					; 00000024H
 	call	?push_back@?$vector@PAVSTTriangleMesh@@V?$allocator@PAVSTTriangleMesh@@@std@@@std@@QAEXABQAVSTTriangleMesh@@@Z ; std::vector<STTriangleMesh *,std::allocator<STTriangleMesh *> >::push_back
 
-; 214  : 	
-; 215  : 
-; 216  :     // save the file
-; 217  :     Save(m_pFileName);
+; 237  : 	
+; 238  : 
+; 239  :     // save the file
+; 240  :     Save(m_pFileName);
 
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [edx]
-	push	eax
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?Save@MySphere@@AAEXPAD@Z		; MySphere::Save
 
-; 218  : 
-; 219  : }
+; 241  : 
+; 242  : }
 
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	lea	ecx, DWORD PTR _arrayMan$[ebp]
+	call	??1DiamondSquare@@QAE@XZ		; DiamondSquare::~DiamondSquare
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
 	mov	esp, ebp
@@ -22955,13 +23157,16 @@ $LN4@Create:
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?Create@MySphere@@QAEXH@Z$0:
+	lea	ecx, DWORD PTR _arrayMan$[ebp]
+	jmp	??1DiamondSquare@@QAE@XZ		; DiamondSquare::~DiamondSquare
+__unwindfunclet$?Create@MySphere@@QAEXH@Z$1:
 	push	172					; 000000acH
-	mov	eax, DWORD PTR $T5[ebp]
+	mov	eax, DWORD PTR $T6[ebp]
 	push	eax
 	call	??3@YAXPAXI@Z				; operator delete
 	add	esp, 8
 	ret	0
-__unwindfunclet$?Create@MySphere@@QAEXH@Z$1:
+__unwindfunclet$?Create@MySphere@@QAEXH@Z$2:
 	mov	ecx, DWORD PTR $T3[ebp]
 	jmp	??1?$vector@USTVector3@@V?$allocator@USTVector3@@@std@@@std@@QAE@XZ ; std::vector<STVector3,std::allocator<STVector3> >::~vector<STVector3,std::allocator<STVector3> >
 __ehhandler$?Create@MySphere@@QAEXH@Z:
@@ -22977,7 +23182,7 @@ __$EHRec$ = -12						; size = 12
 ??1MySphere@@QAE@XZ PROC				; MySphere::~MySphere
 ; _this$ = ecx
 
-; 30   : {
+; 31   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -22989,12 +23194,12 @@ __$EHRec$ = -12						; size = 12
 	push	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 31   :     ClearMesh();
+; 32   :     ClearMesh();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ClearMesh@MySphere@@AAEXXZ		; MySphere::ClearMesh
 
-; 32   : }
+; 33   : }
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 36					; 00000024H
@@ -23024,7 +23229,7 @@ _this$ = -4						; size = 4
 ??0MySphere@@QAE@XZ PROC				; MySphere::MySphere
 ; _this$ = ecx
 
-; 19   : {
+; 20   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -23040,23 +23245,23 @@ _this$ = -4						; size = 4
 	add	ecx, 36					; 00000024H
 	call	??0?$vector@PAVSTTriangleMesh@@V?$allocator@PAVSTTriangleMesh@@@std@@@std@@QAE@XZ ; std::vector<STTriangleMesh *,std::allocator<STTriangleMesh *> >::vector<STTriangleMesh *,std::allocator<STTriangleMesh *> >
 
-; 17   :     : m_globalCount (0),
+; 18   :     : m_globalCount (0),
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+52], 0
 
-; 18   :       m_levels      (1)
+; 19   :       m_levels      (1)
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+56], 1
 
-; 20   :     // set the output fileneame
-; 21   :     m_pFileName = "../../data/meshes/mysphere.obj";
+; 21   :     // set the output fileneame
+; 22   :     m_pFileName = "../../data/meshes/mysphere.obj";
 
 	mov	edx, DWORD PTR _this$[ebp]
-	mov	DWORD PTR [edx], OFFSET $SG40776
+	mov	DWORD PTR [edx], OFFSET $SG40793
 
-; 22   : }
+; 23   : }
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	esp, ebp
@@ -24196,6 +24401,245 @@ __ehhandler$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z:
 	jmp	___CxxFrameHandler3
 text$x	ENDS
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z ENDP ; std::basic_ostream<char,std::char_traits<char> >::operator<<
+; Function compile flags: /Odtp
+; File c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\ostream
+;	COMDAT ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+_TEXT	SEGMENT
+$T2 = -96						; size = 8
+$T3 = -88						; size = 8
+$T4 = -80						; size = 8
+__Ok$ = -72						; size = 8
+$T5 = -64						; size = 4
+tv212 = -60						; size = 4
+__Nput_fac$6 = -56					; size = 4
+tv211 = -52						; size = 4
+__Tmp$7 = -48						; size = 4
+tv207 = -44						; size = 4
+tv65 = -40						; size = 4
+tv134 = -36						; size = 4
+__Bfl$8 = -32						; size = 4
+__State$ = -28						; size = 4
+_this$ = -24						; size = 4
+tv210 = -17						; size = 1
+__$EHRec$ = -16						; size = 16
+__Val$ = 8						; size = 4
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z PROC ; std::basic_ostream<char,std::char_traits<char> >::operator<<, COMDAT
+; _this$ = ecx
+
+; 296  : 		{	// insert an int
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	mov	DWORD PTR fs:0, esp
+	push	ecx
+	sub	esp, 80					; 00000050H
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR __$EHRec$[ebp], esp
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 297  : 		ios_base::iostate _State = ios_base::goodbit;
+
+	mov	DWORD PTR __State$[ebp], 0
+
+; 298  : 		const sentry _Ok(*this);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR __Ok$[ebp]
+	call	??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@AAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::sentry::sentry
+	mov	DWORD PTR __$EHRec$[ebp+12], 0
+
+; 299  : 
+; 300  : 		if (_Ok)
+
+	lea	ecx, DWORD PTR __Ok$[ebp]
+	call	??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QBE_NXZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::operator bool
+	movzx	ecx, al
+	test	ecx, ecx
+	je	$LN2@operator
+
+; 301  : 			{	// state okay, use facet to insert
+; 302  : 			const _Nput& _Nput_fac = _STD use_facet<_Nput>(this->getloc());
+
+	lea	edx, DWORD PTR $T4[ebp]
+	push	edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, DWORD PTR [ecx+4]
+	mov	ecx, edx
+	call	?getloc@ios_base@std@@QBE?AVlocale@2@XZ	; std::ios_base::getloc
+	mov	DWORD PTR tv65[ebp], eax
+	mov	eax, DWORD PTR tv65[ebp]
+	mov	DWORD PTR tv207[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+12], 1
+	mov	ecx, DWORD PTR tv207[ebp]
+	push	ecx
+	call	??$use_facet@V?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@@std@@YAABV?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@0@ABVlocale@0@@Z ; std::use_facet<std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > > >
+	add	esp, 4
+	mov	DWORD PTR __Nput_fac$6[ebp], eax
+	mov	BYTE PTR __$EHRec$[ebp+12], 0
+	lea	ecx, DWORD PTR $T4[ebp]
+	call	??1locale@std@@QAE@XZ			; std::locale::~locale
+
+; 303  : 			ios_base::fmtflags _Bfl =
+; 304  : 				this->flags() & ios_base::basefield;
+
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, DWORD PTR [eax+4]
+	call	?flags@ios_base@std@@QBEHXZ		; std::ios_base::flags
+	and	eax, 3584				; 00000e00H
+	mov	DWORD PTR __Bfl$8[ebp], eax
+
+; 305  : 			long _Tmp = (_Bfl == ios_base::oct
+; 306  : 				|| _Bfl == ios_base::hex)
+
+	cmp	DWORD PTR __Bfl$8[ebp], 1024		; 00000400H
+	je	SHORT $LN6@operator
+	cmp	DWORD PTR __Bfl$8[ebp], 2048		; 00000800H
+	je	SHORT $LN6@operator
+	mov	ecx, DWORD PTR __Val$[ebp]
+	mov	DWORD PTR tv134[ebp], ecx
+	jmp	SHORT $LN7@operator
+$LN6@operator:
+	mov	edx, DWORD PTR __Val$[ebp]
+	mov	DWORD PTR tv134[ebp], edx
+$LN7@operator:
+	mov	eax, DWORD PTR tv134[ebp]
+	mov	DWORD PTR __Tmp$7[ebp], eax
+
+; 307  : 				? (long)(unsigned int)_Val : (long)_Val;
+; 308  : 
+; 309  : 			_TRY_IO_BEGIN
+
+	mov	BYTE PTR __$EHRec$[ebp+12], 2
+
+; 310  : 			if (_Nput_fac.put(_Iter(_Myios::rdbuf()), *this,
+; 311  : 				_Myios::fill(), _Tmp).failed())
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, DWORD PTR [edx+4]
+	call	?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDXZ ; std::basic_ios<char,std::char_traits<char> >::fill
+	mov	BYTE PTR tv210[ebp], al
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, DWORD PTR [ecx+4]
+	mov	ecx, edx
+	call	?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEPAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ ; std::basic_ios<char,std::char_traits<char> >::rdbuf
+	mov	DWORD PTR tv211[ebp], eax
+	mov	eax, DWORD PTR __Tmp$7[ebp]
+	push	eax
+	movzx	ecx, BYTE PTR tv210[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [edx]
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, DWORD PTR [eax+4]
+	push	ecx
+	mov	edx, DWORD PTR tv211[ebp]
+	push	edx
+	lea	ecx, DWORD PTR $T3[ebp]
+	call	??0?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z ; std::ostreambuf_iterator<char,std::char_traits<char> >::ostreambuf_iterator<char,std::char_traits<char> >
+	mov	ecx, DWORD PTR [eax+4]
+	push	ecx
+	mov	edx, DWORD PTR [eax]
+	push	edx
+	lea	eax, DWORD PTR $T2[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Nput_fac$6[ebp]
+	call	?put@?$num_put@DV?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@@std@@QBE?AV?$ostreambuf_iterator@DU?$char_traits@D@std@@@2@V32@AAVios_base@2@DJ@Z ; std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::put
+	mov	DWORD PTR tv212[ebp], eax
+	mov	ecx, DWORD PTR tv212[ebp]
+	call	?failed@?$ostreambuf_iterator@DU?$char_traits@D@std@@@std@@QBE_NXZ ; std::ostreambuf_iterator<char,std::char_traits<char> >::failed
+	movzx	ecx, al
+	test	ecx, ecx
+	je	SHORT $LN4@operator
+
+; 312  : 				_State |= ios_base::badbit;
+
+	mov	edx, DWORD PTR __State$[ebp]
+	or	edx, 4
+	mov	DWORD PTR __State$[ebp], edx
+$LN4@operator:
+	jmp	SHORT $LN8@operator
+__catch$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$0:
+
+; 313  : 			_CATCH_IO_END
+
+	push	1
+	push	4
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, DWORD PTR [ecx+4]
+	mov	ecx, edx
+	call	?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z ; std::basic_ios<char,std::char_traits<char> >::setstate
+	mov	eax, $LN13@operator
+	ret	0
+$LN8@operator:
+	mov	DWORD PTR __$EHRec$[ebp+12], 0
+	jmp	SHORT $LN2@operator
+$LN13@operator:
+	mov	DWORD PTR __$EHRec$[ebp+12], 0
+$LN2@operator:
+
+; 314  : 			}
+; 315  : 
+; 316  : 		_Myios::setstate(_State);
+
+	push	0
+	mov	eax, DWORD PTR __State$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	ecx, DWORD PTR _this$[ebp]
+	add	ecx, DWORD PTR [edx+4]
+	call	?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z ; std::basic_ios<char,std::char_traits<char> >::setstate
+
+; 317  : 		return (*this);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	DWORD PTR $T5[ebp], eax
+	mov	DWORD PTR __$EHRec$[ebp+12], -1
+	lea	ecx, DWORD PTR __Ok$[ebp]
+	call	??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::~sentry
+	mov	eax, DWORD PTR $T5[ebp]
+
+; 318  : 		}
+
+	mov	ecx, DWORD PTR __$EHRec$[ebp+4]
+	mov	DWORD PTR fs:0, ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$2:
+	lea	ecx, DWORD PTR __Ok$[ebp]
+	jmp	??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@XZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::~sentry
+__unwindfunclet$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z$3:
+	lea	ecx, DWORD PTR $T4[ebp]
+	jmp	??1locale@std@@QAE@XZ			; std::locale::~locale
+__ehhandler$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z:
+	mov	eax, OFFSET __ehfuncinfo$??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z ENDP ; std::basic_ostream<char,std::char_traits<char> >::operator<<
 ; Function compile flags: /Odtp
 ; File c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\ostream
 ;	COMDAT ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ

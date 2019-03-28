@@ -39,12 +39,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DiamondSquare.h" />
+    <ClInclude Include="CollisionDetect.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="MySphere.h" />
     <ClInclude Include="stglew.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySphere.cpp" />
+    <ClCompile Include="DiamondSquare.cpp" />
+    <ClCompile Include="CollisionDetect.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kernels\default.vert" />

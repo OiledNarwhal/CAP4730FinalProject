@@ -16,9 +16,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySphere.cpp" />
+    <ClCompile Include="DiamondSquare.cpp" />
+    <ClCompile Include="CollisionDetect.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MySphere.h" />
     <ClInclude Include="stglew.h" />
+    <ClInclude Include="DiamondSquare.h" />
+    <ClInclude Include="CollisionDetect.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
 </Project>

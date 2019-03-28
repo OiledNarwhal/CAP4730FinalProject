@@ -8,6 +8,7 @@
 
 
 #include "MySphere.h"
+#include "DiamondSquare.h"
 
 
 //-----------------------------------------------
@@ -116,6 +117,11 @@ void MySphere::GenerateMesh(STTriangleMesh  *tmesh, std::vector<TriangleIndices>
 		holderThree = face.at(i).i3;
 
 		tmesh->AddFace(holderOne, holderTwo, holderThree);
+
+		if (i == 128)
+		{
+			std::cout << holderOne << " " << holderTwo << " " << holderThree;
+		}
 	}
 }
 
@@ -170,17 +176,17 @@ void MySphere::InitFaces(void)
 	//Formulas to add faces to the plane.
 	for (int i = 0; i < 128; i++)
 	{
-		for (int j = 1; j <= 128; j++)
+		for (int j = 0; j < 128; j++)
 		{
-			m_faces.push_back(MakeTIndices((128 * i) + j, (128 * i) + j + 1, (128 * (i+1)) + j + 1));
-			m_faces.push_back(MakeTIndices((128 * i) + j, (128 * (i + 1)) + j, (128 * (i + 1)) + j + 1));
+			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * i) + j + 1, (129 * (i+1)) + j + 1));
+			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * (i + 1)) + j + 1, (129 * (i + 1)) + j));
 		}
 	}
 
 }
 
 
-// Creates the vertices for a 128 x 128 vertex square.
+// Creates the vertices for a 129 x 129 vertex square.
 void MySphere::InitVertices(void)
 {
     m_vertices.clear();
@@ -191,7 +197,7 @@ void MySphere::InitVertices(void)
 	{
 		for (int j = 0; j < 129; j++)
 		{
-			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2));
+			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2)); //Was i * 0.2, 0, j * 0.2
 		}
 	}
 }
@@ -206,6 +212,23 @@ void MySphere::Create(int levels)
     InitVertices();
 	InitFaces();
 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
+
+	//Creating our DiamondSquare Array
+	DiamondSquare arrayMan = DiamondSquare();
+	arrayMan.buildArray();
+	float ** yArray = arrayMan.getArray();
+
+	//Changing the Y values of the vertices with the DiamondSquare Array
+	for (int i = 0; i < 129; i++)
+	{
+		for (int j = 0; j < 129; j++)
+		{
+			float temp = yArray[i][j];
+
+			m_vertices.at((129 * i) + j).y = temp;
+		}
+	}
+
 
 	STTriangleMesh* dog = new STTriangleMesh();
 	GenerateMesh(dog, m_faces, m_vertices, 0);
