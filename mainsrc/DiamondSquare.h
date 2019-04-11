@@ -17,7 +17,8 @@ class DiamondSquare
 {
 
 public:
-	DiamondSquare(void); //Constructor
+	DiamondSquare(void);
+	DiamondSquare(int width); //Constructor
 	~DiamondSquare(void); //Destructor
 
 	float** getArray();
@@ -27,7 +28,12 @@ public:
 
 private:
 
+	int width;
 	float** heightArray;
+	void diamondStep(int x, int y, int radius);
+	void squareStep(int x, int y, int radius);
+	
+
 };
 
 

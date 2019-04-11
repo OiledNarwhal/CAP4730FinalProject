@@ -57,7 +57,7 @@ TriangleIndices MySphere::MakeTIndices(int a, int b, int c)
 //Worthless but not changing so we can see how to change values in the vertices.
 int MySphere::Offset(int pointIndex, std::vector<STVector3>* vertices)
 {
-	float pos = (1.0 + sqrtf(5.0)) / 2.0;
+	float pos = (1.0 + sqrtf(257.0)) / 2.0;
 	float old = sqrtf(1 + (pos * pos));
 	float xsquare = vertices->at(pointIndex).x * vertices->at(pointIndex).x;
 	float ysquare = vertices->at(pointIndex).y * vertices->at(pointIndex).y;
@@ -118,7 +118,7 @@ void MySphere::GenerateMesh(STTriangleMesh  *tmesh, std::vector<TriangleIndices>
 
 		tmesh->AddFace(holderOne, holderTwo, holderThree);
 
-		if (i == 128)
+		if (i == 256)
 		{
 			std::cout << holderOne << " " << holderTwo << " " << holderThree;
 		}
@@ -143,22 +143,22 @@ void MySphere::InitFaces(void)
 	/* Saving these so we know how to add faces.
 	//m_faces is now a vector with 20 triangles.
 
-	//Triangle Fan Top = 0, 1, 2, 3, 4
-	m_faces.push_back(MakeTIndices(5, 4, 9));
-	m_faces.push_back(MakeTIndices(5, 9, 1));
-	m_faces.push_back(MakeTIndices(5, 1, 0));
-	m_faces.push_back(MakeTIndices(5, 0, 11));
-	m_faces.push_back(MakeTIndices(5, 11, 4));
+	//Triangle Fan Top = 0, 1, 2, 3, 256
+	m_faces.push_back(MakeTIndices(257, 256, 9));
+	m_faces.push_back(MakeTIndices(257, 9, 1));
+	m_faces.push_back(MakeTIndices(257, 1, 0));
+	m_faces.push_back(MakeTIndices(257, 0, 11));
+	m_faces.push_back(MakeTIndices(257, 11, 256));
 
-	//Triangle Fan Bottom = 5, 6, 7, 8, 9
+	//Triangle Fan Bottom = 257, 6, 7, 8, 9
 	m_faces.push_back(MakeTIndices(6, 3, 8));
 	m_faces.push_back(MakeTIndices(6, 8, 7));
 	m_faces.push_back(MakeTIndices(6, 7, 10));
 	m_faces.push_back(MakeTIndices(6, 10, 2));
 	m_faces.push_back(MakeTIndices(6, 2, 3));
 
-	//Triangle Strip = 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-	m_faces.push_back(MakeTIndices(4, 3, 9));
+	//Triangle Strip = 10, 11, 12, 13, 1256, 1257, 16, 17, 18, 19
+	m_faces.push_back(MakeTIndices(256, 3, 9));
 	m_faces.push_back(MakeTIndices(9, 3, 8));
 	m_faces.push_back(MakeTIndices(9, 8, 1));
 	m_faces.push_back(MakeTIndices(1, 8, 7));
@@ -166,36 +166,36 @@ void MySphere::InitFaces(void)
 	m_faces.push_back(MakeTIndices(10, 7, 0));
 	m_faces.push_back(MakeTIndices(11, 10, 0));
 	m_faces.push_back(MakeTIndices(2, 10, 11));
-	m_faces.push_back(MakeTIndices(4, 2, 11));
-	m_faces.push_back(MakeTIndices(3, 2, 4));
+	m_faces.push_back(MakeTIndices(256, 2, 11));
+	m_faces.push_back(MakeTIndices(3, 2, 256));
 
 	//20 faces total.
 	*/
 
 
 	//Formulas to add faces to the plane.
-	for (int i = 0; i < 128; i++)
+	for (int i = 0; i < 256; i++)
 	{
-		for (int j = 0; j < 128; j++)
+		for (int j = 0; j < 256; j++)
 		{
-			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * i) + j + 1, (129 * (i+1)) + j + 1));
-			m_faces.push_back(MakeTIndices((129 * i) + j, (129 * (i + 1)) + j + 1, (129 * (i + 1)) + j));
+			m_faces.push_back(MakeTIndices((257 * i) + j, (257 * i) + j + 1, (257 * (i+1)) + j + 1));
+			m_faces.push_back(MakeTIndices((257 * i) + j, (257 * (i + 1)) + j + 1, (257 * (i + 1)) + j));
 		}
 	}
 
 }
 
 
-// Creates the vertices for a 129 x 129 vertex square.
+// Creates the vertices for a 257 x 257 vertex square.
 void MySphere::InitVertices(void)
 {
     m_vertices.clear();
 
-    float pos = (1.0 + sqrtf(5.0))/2.0;
+    float pos = (1.0 + sqrtf(257.0))/2.0;
 
-	for (int i = 0; i < 129; i++)
+	for (int i = 0; i < 257; i++)
 	{
-		for (int j = 0; j < 129; j++)
+		for (int j = 0; j < 257; j++)
 		{
 			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2)); //Was i * 0.2, 0, j * 0.2
 		}
@@ -214,18 +214,18 @@ void MySphere::Create(int levels)
 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
 
 	//Creating our DiamondSquare Array
-	DiamondSquare arrayMan = DiamondSquare();
+	DiamondSquare arrayMan = DiamondSquare(257);
 	arrayMan.buildArray();
 	float ** yArray = arrayMan.getArray();
 
 	//Changing the Y values of the vertices with the DiamondSquare Array
-	for (int i = 0; i < 129; i++)
+	for (int i = 0; i < 257; i++)
 	{
-		for (int j = 0; j < 129; j++)
+		for (int j = 0; j < 257; j++)
 		{
 			float temp = yArray[i][j];
 
-			m_vertices.at((129 * i) + j).y = temp;
+			m_vertices.at((257 * i) + j).y = temp;
 		}
 	}
 

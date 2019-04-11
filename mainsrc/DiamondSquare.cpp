@@ -5,15 +5,38 @@
 //-----------------------------------------------
 // Constructor
 //-----------------------------------------------
-DiamondSquare::DiamondSquare()
+
+DiamondSquare::DiamondSquare(void)
 {
+	width = 129;
 	heightArray = 0;
 	heightArray = new float*[129];
 
-	for(int i = 0; i < 129; i++)
+	for (int i = 0; i < 129; i++)
 	{
 		heightArray[i] = new float[129];
 	}
+
+	heightArray[0][0] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[0][128] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[128][0] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[128][128] = ((float)rand() / RAND_MAX) * 20;
+}
+
+DiamondSquare::DiamondSquare(int width)
+{
+	this->width = width;
+	heightArray = 0;
+	heightArray = new float*[width];
+
+	for(int i = 0; i < width; i++)
+	{
+		heightArray[i] = new float[width];
+	}
+	heightArray[0][0] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[0][width - 1] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[width - 1][0] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[width - 1][width - 1] = ((float)rand() / RAND_MAX) * 20;
 }
 
 DiamondSquare::~DiamondSquare(void)
@@ -27,49 +50,99 @@ float ** DiamondSquare::getArray()
 
 void DiamondSquare::buildArray()
 {
-	for (int i = 0; i < 129; i++)
-	{
-		for (int j = 0; j < 129; j++)
-		{
-			heightArray[i][j] = i * j * j * 0.00001;
-			//i * j * j * 0.00001;
+	int squareSize = width - 1;
+
+	while (squareSize >= 2) {
+
+		int halfStep = squareSize / 2;
+		
+		for (int y = halfStep; y < width; y += squareSize) {
+			for (int x = halfStep; x < width; x += squareSize) {
+				squareStep(x, y, halfStep);
+			}
 		}
+
+		bool colTracker = false;
+		
+		for (int x = 0; x < width; x += halfStep) {
+			
+			colTracker = !(colTracker);
+			
+			if (colTracker) {
+
+				for (int y = halfStep; y < width; y += squareSize) {
+					diamondStep(x, y, halfStep);
+				}
+			}
+			else {
+				
+				for (int y = 0; y < width; y += squareSize) {
+					diamondStep(x, y, halfStep);
+				}
+			}
+		}
+		squareSize /= 2;
+	}
+}
+
+void DiamondSquare::diamondStep(int x, int y, int radius) {
+	
+	float avg;
+	float sum = 0;
+	int corners = 0;
+
+	if ((x - radius) >= 0) {
+		sum += heightArray[x - radius][y];
+		corners++;
 	}
 
-	
-	heightArray[0][0] = 14.5;
-	heightArray[0][4] = 15;
-	heightArray[4][0] = 15;
-	heightArray[4][4] = 14.3;
+	if ((x + radius) < width) {
+		sum += heightArray[x + radius][y];
+		corners++;
+	}
 
-	heightArray[2][2] = 14.7;
+	if ((y + radius) < width) {
+		sum += heightArray[x][y + radius];
+		corners++;
+	}
 
-	heightArray[0][2] = 14.75;
-	heightArray[2][0] = 14.75;
-	heightArray[2][4] = 14.65;
-	heightArray[4][2] = 14.65;
+	if ((y - radius) >= 0) {
+		sum += heightArray[x][y - radius];
+		corners++;
+	}
 
-	heightArray[1][1] = 14.675;
-	heightArray[1][3] = 14.775;
-	heightArray[3][1] = 14.775;
-	heightArray[3][3] = 14.575;
+	sum += ((float)rand() / RAND_MAX) * radius / 2 + ((float)rand() / RAND_MAX) * 0.2;
+	avg = sum / corners;
+	heightArray[x][y] = avg;
+}
 
-	heightArray[0][1] = 14.625;
-	heightArray[1][0] = 14.625;
-	heightArray[1][2] = 14.725;
-	heightArray[2][1] = 14.725;
+void DiamondSquare::squareStep(int x, int y, int radius) {
 
-	heightArray[0][3] = 14.875;
-	heightArray[1][4] = 14.825;
-	heightArray[2][3] = 14.675;
+	float avg;
+	float sum = 0;
+	int corners = 0;
 
-	heightArray[3][0] = 14.875;
-	heightArray[4][1] = 14.825;
-	heightArray[3][2] = 14.675;
+	if ((x + radius) < width && (y + radius) < width) {
+		sum += heightArray[x + radius][y + radius];
+		corners++;
+	}
 
-	heightArray[3][4] = 14.475;
-	heightArray[4][3] = 14.475;
+	if ((x - radius) >= 0 && (y + radius) < width) {
+		sum += heightArray[x - radius][y + radius];
+		corners++;
+	}
 
+	if ((x - radius) >= 0 && (y - radius) >= 0) {
+		sum += heightArray[x - radius][y - radius];
+		corners++;
+	}
 
-	
+	if ((x + radius) < width && (y - radius) >= 0) {
+		sum += heightArray[x + radius][y - radius];
+		corners++;
+	}
+
+	sum += ((float)rand() / RAND_MAX) * radius / 2 + ((float)rand() / RAND_MAX) * 0.2;
+	avg = sum / corners;
+	heightArray[x][y] = avg;
 }
