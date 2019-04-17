@@ -17,10 +17,10 @@ DiamondSquare::DiamondSquare(void)
 		heightArray[i] = new float[129];
 	}
 
-	heightArray[0][0] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[0][128] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[128][0] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[128][128] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[0][0] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[0][128] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[128][0] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[128][128] = ((float)rand() / RAND_MAX) * 2;
 }
 
 DiamondSquare::DiamondSquare(int width)
@@ -33,10 +33,10 @@ DiamondSquare::DiamondSquare(int width)
 	{
 		heightArray[i] = new float[width];
 	}
-	heightArray[0][0] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[0][width - 1] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[width - 1][0] = ((float)rand() / RAND_MAX) * 20;
-	heightArray[width - 1][width - 1] = ((float)rand() / RAND_MAX) * 20;
+	heightArray[0][0] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[0][width - 1] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[width - 1][0] = ((float)rand() / RAND_MAX) * 2 - 1;
+	heightArray[width - 1][width - 1] = ((float)rand() / RAND_MAX) * 2 - 1;
 }
 
 DiamondSquare::~DiamondSquare(void)
@@ -111,7 +111,7 @@ void DiamondSquare::diamondStep(int x, int y, int radius) {
 		corners++;
 	}
 
-	sum += ((float)rand() / RAND_MAX) * radius / 2 + ((float)rand() / RAND_MAX) * 0.2;
+	sum += fmod(rand(), (radius * 1.5)) - radius * 0.75;
 	avg = sum / corners;
 	heightArray[x][y] = avg;
 }
@@ -142,7 +142,7 @@ void DiamondSquare::squareStep(int x, int y, int radius) {
 		corners++;
 	}
 
-	sum += ((float)rand() / RAND_MAX) * radius / 2 + ((float)rand() / RAND_MAX) * 0.2;
+	sum += fmod(rand(), (radius * 1.5)) - radius * 0.75;
 	avg = sum / corners;
 	heightArray[x][y] = avg;
 }
