@@ -41,6 +41,7 @@
   <ItemGroup>
     <ClInclude Include="DiamondSquare.h" />
     <ClInclude Include="CollisionDetect.h" />
+    <ClInclude Include="PerlinMap.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="MySphere.h" />
     <ClInclude Include="stglew.h" />
@@ -50,11 +51,13 @@
     <ClCompile Include="MySphere.cpp" />
     <ClCompile Include="DiamondSquare.cpp" />
     <ClCompile Include="CollisionDetect.cpp" />
+    <ClCompile Include="PerlinMap.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kernels\default.vert" />
     <None Include="kernels\phong.frag" />
+    <None Include="libnoise.dll" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AA6666AA-E09F-4135-9C0C-4FE50C3C654B}</ProjectGuid>
@@ -208,7 +211,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\libst-2018\include;..\zlib-1.2.11;..\libpng-1.6.35;..\jpeg-9c;..\glew-2.1.0\include;..\freetype-2.9.1\include;..\freeglut-3.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\glm-0.9.2.6;..\glm-0.9.2.6\glm;..\libst-2018\include;..\zlib-1.2.11;..\libpng-1.6.35;..\jpeg-9c;..\glew-2.1.0\include;..\glfw-3.2.1\include;..\glfw-3.2.1;..\freetype-2.9.1\include;..\freeglut-3.0.0\include;..\libnoiseheaders-1.0.0;..\libnoisedll-1.0.0;..\libnoiseheaders-1.0.0\include\noise;..\libnoisedll-1.0.0\bin</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>ASMV;ASMINF;WIN32;ZLIB_WINAPI;_DEBUG;_CONSOLE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -222,7 +225,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libst.lib;freeglut_staticd.lib;glew32.lib;freetype.lib;zlib.lib;libpng.lib;libjpeg.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libst.lib;freeglut_staticd.lib;glfw.lib;glew32.lib;freetype.lib;zlib.lib;libpng.lib;libjpeg.lib;opengl32.lib;libnoise.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)testzlib.pdb</ProgramDatabaseFile>
@@ -232,6 +235,7 @@
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalLibraryDirectories>..\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithoutAsm|Win32'">
