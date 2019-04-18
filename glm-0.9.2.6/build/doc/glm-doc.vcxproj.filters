@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\dummy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\about.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\code.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\download.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\goodies.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\link.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\news.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\util.xsl">
+      <Filter>XSL Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\coreModules.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\gtcModules.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\gtxModules.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\man.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\pages.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\virtrevModules.doxy">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\copying.txt">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\readme.txt">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\theme\doxygen.css">
+      <Filter>TXT Files</Filter>
+    </None>
+    <None Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\theme\tabs.css">
+      <Filter>TXT Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <XML Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\doc\src\data.xml">
+      <Filter>XML Files</Filter>
+    </XML>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{62F23844-246C-3407-B1C2-92AE86B256B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TXT Files">
+      <UniqueIdentifier>{3AFC1067-E736-3B03-9EA0-76F080DC6895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML Files">
+      <UniqueIdentifier>{7B09AD7A-0C8A-358F-848F-CBB56FFA30A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XSL Files">
+      <UniqueIdentifier>{758312AA-F241-319D-8255-107D59B6620F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

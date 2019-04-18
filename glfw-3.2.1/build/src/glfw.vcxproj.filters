@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)..\..\src\context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\input.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\vulkan.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\window.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_joystick.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_time.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_tls.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\win32_window.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\wgl_context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\src\egl_context.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(ProjectDir)..\..\src\internal.h" />
+    <ClInclude Include="$(ProjectDir)glfw_config.h" />
+    <ClInclude Include="$(ProjectDir)..\..\include\GLFW\glfw3.h" />
+    <ClInclude Include="$(ProjectDir)..\..\include\GLFW\glfw3native.h" />
+    <ClInclude Include="$(ProjectDir)..\..\src\win32_platform.h" />
+    <ClInclude Include="$(ProjectDir)..\..\src\win32_joystick.h" />
+    <ClInclude Include="$(ProjectDir)..\..\src\wgl_context.h" />
+    <ClInclude Include="$(ProjectDir)..\..\src\egl_context.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{43136970-22CC-3AF5-A86F-F33E74B4B63B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C6031E14-60D0-3CCD-8C34-099D6C11A2A2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

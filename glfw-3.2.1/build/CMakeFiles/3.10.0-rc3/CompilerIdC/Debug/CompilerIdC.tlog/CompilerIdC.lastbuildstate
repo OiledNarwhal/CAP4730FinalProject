@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.15063.0
+Debug|Win32|C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solutionset_FINAL_\proj3_glslshaders\src\glfw-3.2.1\build\CMakeFiles\3.10.0-rc3\CompilerIdC\|

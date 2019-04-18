@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solutionset_FINAL_\proj3_glslshaders\src\glfw-3.2.1\build\CMakeFiles\c783509b80cf5e147af92d8a62e3ac64\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{ED8BA64B-C911-3FDD-AF28-5B71098CC490}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

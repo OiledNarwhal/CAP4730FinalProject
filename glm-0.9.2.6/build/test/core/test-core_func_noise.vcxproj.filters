@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\test\core\core_func_noise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\test\core\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{62F23844-246C-3407-B1C2-92AE86B256B7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

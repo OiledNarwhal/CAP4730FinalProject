@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E978E756-67FA-34CF-B3E4-E187142F4E4F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\bin\cmake.exe" -HC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6 -BC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build --check-stamp-file C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCCompiler.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\bin\cmake.exe" -HC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6 -BC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build --check-stamp-file C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCCompiler.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\bin\cmake.exe" -HC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6 -BC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build --check-stamp-file C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCCompiler.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\bin\cmake.exe" -HC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6 -BC:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build --check-stamp-file C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/UF-Teaching-CAP5705-2017/_proj3_glslshaders_solution_/thefinal/im_learnding/glm-0.9.2.6/CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInitialize.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCCompiler.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeCXXCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\3.10.0-rc3\CMakeRCCompiler.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake-3.10.0-rc3-win32-x86\share\cmake-3.10\Modules\CMakeCommonLanguageInclude.cmake;C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\ZERO_CHECK.vcxproj">
+      <Project>{5B978EB6-2913-3E26-8B40-8A565456678A}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\glm\glm.vcxproj">
+      <Project>{FE7C456C-966D-3763-8EF8-64C7FCCDFE44}</Project>
+      <Name>glm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\doc\glm-doc.vcxproj">
+      <Project>{F98AFB27-A10D-3BDC-B273-BCF32EAFF53B}</Project>
+      <Name>glm-doc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_common.vcxproj">
+      <Project>{8E5CA976-CB78-30A1-93AE-5974B61AC608}</Project>
+      <Name>test-core_func_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_exponential.vcxproj">
+      <Project>{77B309EB-DF65-3E61-9022-63F65E77FF9F}</Project>
+      <Name>test-core_func_exponential</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_geometric.vcxproj">
+      <Project>{026B3A76-A56A-36B4-BE60-CDDC2EFFF7C9}</Project>
+      <Name>test-core_func_geometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_integer.vcxproj">
+      <Project>{74AF4012-A64A-34E5-B677-8CD8F02DFD42}</Project>
+      <Name>test-core_func_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_matrix.vcxproj">
+      <Project>{FA717DF0-9C9B-3A66-878E-2DF93CDCBB19}</Project>
+      <Name>test-core_func_matrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_noise.vcxproj">
+      <Project>{8F543620-AA5A-3423-9FDE-1F7AA53FE9AF}</Project>
+      <Name>test-core_func_noise</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_packing.vcxproj">
+      <Project>{7EFA70C0-A30E-3548-B9A4-D5F2AFA9D563}</Project>
+      <Name>test-core_func_packing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_trigonometric.vcxproj">
+      <Project>{E71B672F-FA53-3C74-9B96-CA9E4D6F6645}</Project>
+      <Name>test-core_func_trigonometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_func_vector_relational.vcxproj">
+      <Project>{B03B8BDD-E31A-3794-8CB7-15189A7C9D92}</Project>
+      <Name>test-core_func_vector_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_setup_message.vcxproj">
+      <Project>{6E3144A3-D85E-3D02-B970-E8AD464DAAD4}</Project>
+      <Name>test-core_setup_message</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_setup_precision.vcxproj">
+      <Project>{4A17AE17-E565-329C-8321-BD676737CF22}</Project>
+      <Name>test-core_setup_precision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_float.vcxproj">
+      <Project>{67DBC5FC-1E50-3916-A586-FC54B60F79B4}</Project>
+      <Name>test-core_type_float</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_half.vcxproj">
+      <Project>{253FD125-22F1-3E8C-9BB6-8D71845EBCF5}</Project>
+      <Name>test-core_type_half</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_int.vcxproj">
+      <Project>{35FFA486-F120-3EF3-B88F-0495E20BBCB5}</Project>
+      <Name>test-core_type_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat2x2.vcxproj">
+      <Project>{0EB8CA8A-D58E-3F3B-9714-5A6C63574246}</Project>
+      <Name>test-core_type_mat2x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat2x3.vcxproj">
+      <Project>{6D4BB603-A5F6-3005-B864-39A6EF93D114}</Project>
+      <Name>test-core_type_mat2x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat2x4.vcxproj">
+      <Project>{DDFD7D4F-05F6-38D5-9831-FCF6F294D3A5}</Project>
+      <Name>test-core_type_mat2x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat3x2.vcxproj">
+      <Project>{50E1A5D4-B9A7-3F89-8F5A-223CBDD167D0}</Project>
+      <Name>test-core_type_mat3x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat3x3.vcxproj">
+      <Project>{2B5FAC77-0148-36C5-A4AA-3CE9B261ABB7}</Project>
+      <Name>test-core_type_mat3x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat3x4.vcxproj">
+      <Project>{AA2BA2B3-7918-3355-8494-7D7FD5311043}</Project>
+      <Name>test-core_type_mat3x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat4x2.vcxproj">
+      <Project>{21C89F3D-236D-3E40-8B19-FC6D6635F667}</Project>
+      <Name>test-core_type_mat4x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat4x3.vcxproj">
+      <Project>{486701B2-7294-3812-8815-E1D5F1AB0FF6}</Project>
+      <Name>test-core_type_mat4x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_mat4x4.vcxproj">
+      <Project>{7E7D2F60-C66D-30AA-8682-E10D2B72B0CE}</Project>
+      <Name>test-core_type_mat4x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_vec1.vcxproj">
+      <Project>{E34ECEE0-0A87-3A66-9E03-2B41B43361A1}</Project>
+      <Name>test-core_type_vec1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_vec2.vcxproj">
+      <Project>{90401E62-F9D8-3503-8C72-BA12D29B2717}</Project>
+      <Name>test-core_type_vec2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_vec3.vcxproj">
+      <Project>{997E1193-0C4C-3349-B5FF-514128277B1F}</Project>
+      <Name>test-core_type_vec3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\core\test-core_type_vec4.vcxproj">
+      <Project>{8B28FEC9-261B-38BD-B4C2-313834A6A0E2}</Project>
+      <Name>test-core_type_vec4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_half_float.vcxproj">
+      <Project>{1BD982EF-E8E4-3109-BEB9-ABA3B2760854}</Project>
+      <Name>test-gtc_half_float</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_matrix_access.vcxproj">
+      <Project>{7C964C25-91FC-386F-B8B8-90474B29B1C3}</Project>
+      <Name>test-gtc_matrix_access</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_matrix_integer.vcxproj">
+      <Project>{9FEEBA16-A83D-3246-8815-ED3074049C2D}</Project>
+      <Name>test-gtc_matrix_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_matrix_inverse.vcxproj">
+      <Project>{C7239EAF-9CC8-3891-90C4-C8330471E8C9}</Project>
+      <Name>test-gtc_matrix_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_matrix_transform.vcxproj">
+      <Project>{CC44CCE4-E7B1-340E-9C85-9A245B83C8EC}</Project>
+      <Name>test-gtc_matrix_transform</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_quaternion.vcxproj">
+      <Project>{D38E0C17-CBC3-37B0-97CE-5002ED94D09F}</Project>
+      <Name>test-gtc_quaternion</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_swizzle.vcxproj">
+      <Project>{2573EDB7-C456-32D7-B276-977F58D08258}</Project>
+      <Name>test-gtc_swizzle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_type_precision.vcxproj">
+      <Project>{4A15C28C-86B8-3D7E-953A-ACDD93BAB059}</Project>
+      <Name>test-gtc_type_precision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtc\test-gtc_type_ptr.vcxproj">
+      <Project>{4E7D217E-D88A-3C7E-8192-58DA0DB70993}</Project>
+      <Name>test-gtc_type_ptr</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_bit.vcxproj">
+      <Project>{F0075A60-4365-392F-89ED-AA53570CA273}</Project>
+      <Name>test-gtx_bit</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_noise.vcxproj">
+      <Project>{D227ACC6-61CC-3759-BD4D-1A141596A7AE}</Project>
+      <Name>test-gtx_noise</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_quaternion.vcxproj">
+      <Project>{08CFABAB-2DE9-3880-915D-5B7AFFA13AB7}</Project>
+      <Name>test-gtx_quaternion</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_random.vcxproj">
+      <Project>{E2842F4C-9B22-362D-886A-079B98A6CE82}</Project>
+      <Name>test-gtx_random</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_rotate_vector.vcxproj">
+      <Project>{F606B03F-6509-3BB4-BBA1-2991D382BB6B}</Project>
+      <Name>test-gtx_rotate_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_simd_mat4.vcxproj">
+      <Project>{762B9565-BECD-3A1E-8808-6CCC37C35F71}</Project>
+      <Name>test-gtx_simd_mat4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_simd_vec4.vcxproj">
+      <Project>{881AFAC9-0E46-3FC9-8F07-934E3E7C2DF1}</Project>
+      <Name>test-gtx_simd_vec4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_string_cast.vcxproj">
+      <Project>{9BA64C59-34C0-38B0-8A90-54ED631263E8}</Project>
+      <Name>test-gtx_string_cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_ulp.vcxproj">
+      <Project>{C6B4342A-2F75-310C-AC41-7FA7B2541828}</Project>
+      <Name>test-gtx_ulp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\UF-Teaching-CAP5705-2017\_proj3_glslshaders_solution_\thefinal\im_learnding\glm-0.9.2.6\build\test\gtx\test-gtx_vector_angle.vcxproj">
+      <Project>{A46A968B-0A0A-3F20-B94F-997FFFC8FD55}</Project>
+      <Name>test-gtx_vector_angle</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
