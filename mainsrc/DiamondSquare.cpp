@@ -20,7 +20,7 @@ DiamondSquare::DiamondSquare(void)
 	heightArray[0][0] = ((float)rand() / RAND_MAX) * 2 - 1;
 	heightArray[0][128] = ((float)rand() / RAND_MAX) * 2 - 1;
 	heightArray[128][0] = ((float)rand() / RAND_MAX) * 2 - 1;
-	heightArray[128][128] = ((float)rand() / RAND_MAX) * 2;
+	heightArray[128][128] = ((float)rand() / RAND_MAX) * 2 - 1;
 }
 
 DiamondSquare::DiamondSquare(int width)
@@ -50,15 +50,17 @@ float ** DiamondSquare::getArray()
 
 void DiamondSquare::buildArray()
 {
-	int squareSize = width - 1;
+	double squareSize = width - 1;
 
 	while (squareSize >= 2) {
 
 		int halfStep = squareSize / 2;
 		
+		double heightFactor = fmod(rand(), (2 - 0.75)) + 0.75;
+
 		for (int y = halfStep; y < width; y += squareSize) {
 			for (int x = halfStep; x < width; x += squareSize) {
-				squareStep(x, y, halfStep);
+				squareStep(x, y, halfStep, heightFactor);
 			}
 		}
 
@@ -71,13 +73,13 @@ void DiamondSquare::buildArray()
 			if (colTracker) {
 
 				for (int y = halfStep; y < width; y += squareSize) {
-					diamondStep(x, y, halfStep);
+					diamondStep(x, y, halfStep, heightFactor);
 				}
 			}
 			else {
 				
 				for (int y = 0; y < width; y += squareSize) {
-					diamondStep(x, y, halfStep);
+					diamondStep(x, y, halfStep, heightFactor);
 				}
 			}
 		}
@@ -85,7 +87,7 @@ void DiamondSquare::buildArray()
 	}
 }
 
-void DiamondSquare::diamondStep(int x, int y, int radius) {
+void DiamondSquare::diamondStep(int x, int y, int radius, double heightFactor) {
 	
 	float avg;
 	float sum = 0;
@@ -111,12 +113,12 @@ void DiamondSquare::diamondStep(int x, int y, int radius) {
 		corners++;
 	}
 
-	sum += fmod(rand(), (radius * 1.5)) - radius * 0.75;
+	sum += ((float)rand() / RAND_MAX) * (radius * heightFactor) - radius * (heightFactor / 2);
 	avg = sum / corners;
 	heightArray[x][y] = avg;
 }
 
-void DiamondSquare::squareStep(int x, int y, int radius) {
+void DiamondSquare::squareStep(int x, int y, int radius, double heightFactor) {
 
 	float avg;
 	float sum = 0;
@@ -141,8 +143,7 @@ void DiamondSquare::squareStep(int x, int y, int radius) {
 		sum += heightArray[x + radius][y - radius];
 		corners++;
 	}
-
-	sum += fmod(rand(), (radius * 1.5)) - radius * 0.75;
+	sum += ((float)rand() / RAND_MAX) * (radius * 2) - radius * (heightFactor / 2);
 	avg = sum / corners;
 	heightArray[x][y] = avg;
 }

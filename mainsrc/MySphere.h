@@ -51,6 +51,7 @@ private:
     std::vector<STTriangleMesh *>   m_TriangleMeshes;       // triangle meshes for this sphere
     int                             m_globalCount;          // global counter, for tracking offsets to sphere surface
     int                             m_levels;               // subdivision levels
+	int								numVerts;		/*ADDED FOR TERRAIN GENERATION*/
 
 
 

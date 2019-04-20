@@ -34,7 +34,7 @@ void PerlinMap::buildHeightMap() {
 			float sampleVal3 = myModule.GetValue(4 * xSample, 2 * ySample, 0);
 			float x = convertVal(sampleVal1) + 0.5 * convertVal(sampleVal2) + 0.25 * convertVal(sampleVal3);
 			//std::cout << sampleVal << std::endl;
-			heightMap[i][j] = pow(x, 2);
+			heightMap[i][j] = pow(x, 3);
 		}
 	}
 }

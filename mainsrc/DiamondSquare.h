@@ -30,8 +30,8 @@ private:
 
 	int width;
 	float** heightArray;
-	void diamondStep(int x, int y, int radius);
-	void squareStep(int x, int y, int radius);
+	void diamondStep(int x, int y, int radius, double heightFactor);
+	void squareStep(int x, int y, int radius, double heightFactor);
 	
 
 };

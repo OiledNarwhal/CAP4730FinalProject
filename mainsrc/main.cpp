@@ -81,8 +81,8 @@ float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
 
-float yaw_rate=1.f;
-float pitch_rate=1.f;
+float yaw_rate = 1.f;
+float pitch_rate = 1.f;
 
 float table[4][4];
 
@@ -173,43 +173,15 @@ void resetUp()
 //-----------------------------------------------
 void CreateYourOwnMesh()
 {
-	float leftX = -2.0f;
-	float rightX = -leftX;
-	float nearZ = -2.0f;
-	float farZ = -nearZ;
+	MySphere  terrainMesh;
+	terrainMesh.Create(globallevels);
 
-	gCoordAxisTriangleMesh = new STTriangleMesh();
-	for (int i = 0; i < TesselationDepth + 1; i++) {
-		for (int j = 0; j < TesselationDepth + 1; j++) {
-			float s0 = (float)i / (float)TesselationDepth;
-			float x0 = s0 * (rightX - leftX) + leftX;
-			float t0 = (float)j / (float)TesselationDepth;
-			float z0 = t0 * (farZ - nearZ) + nearZ;
-
-			gCoordAxisTriangleMesh->AddVertex(x0, (x0*x0 + z0 * z0)*0.0f, z0, s0, t0);
-		}
+	STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+	if (gTriangleMeshes.size()) {
+		gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+		meshType = MeshType::Mesh;
+		gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
 	}
-	for (int i = 0; i < TesselationDepth; i++) {
-		for (int j = 0; j < TesselationDepth; j++) {
-			unsigned int id0 = i * (TesselationDepth + 1) + j;
-			unsigned int id1 = (i + 1)*(TesselationDepth + 1) + j;
-			unsigned int id2 = (i + 1)*(TesselationDepth + 1) + j + 1;
-			unsigned int id3 = i * (TesselationDepth + 1) + j + 1;
-			gCoordAxisTriangleMesh->AddFace(id0, id2, id1);
-			gCoordAxisTriangleMesh->AddFace(id0, id3, id2);
-		}
-	}
-	gCoordAxisTriangleMesh->Build();
-	gCoordAxisTriangleMesh->mMaterialAmbient[0] = 0.2f;
-	gCoordAxisTriangleMesh->mMaterialAmbient[1] = 0.2f;
-	gCoordAxisTriangleMesh->mMaterialAmbient[2] = 0.6f;
-	gCoordAxisTriangleMesh->mMaterialDiffuse[0] = 0.2f;
-	gCoordAxisTriangleMesh->mMaterialDiffuse[1] = 0.2f;
-	gCoordAxisTriangleMesh->mMaterialDiffuse[2] = 0.6f;
-	gCoordAxisTriangleMesh->mMaterialSpecular[0] = 0.6f;
-	gCoordAxisTriangleMesh->mMaterialSpecular[1] = 0.6f;
-	gCoordAxisTriangleMesh->mMaterialSpecular[2] = 0.6f;
-	gCoordAxisTriangleMesh->mShininess = 8.0f;
 }
 
 
@@ -541,7 +513,7 @@ void SpecialKeyCallback(int key, int x, int y)
 {
 	//float cameraSpeed = 0.05f; // adjust accordingly
 	float cameraSpeed = 5.f * deltaTime;
-	
+
 	switch (key) {
 	case GLUT_KEY_LEFT:
 		mPosition -= glm::normalize(glm::cross(mLookAt, mUp)) * cameraSpeed;
@@ -605,7 +577,6 @@ void MouseMotionCallback(int x, int y)
 		gPreviousMouseX = x;
 		gPreviousMouseY = y;
 
-		std::cout << x << "\n";
 
 		//orbit, strafe, or zoom
 		if (gMouseButton == GLUT_LEFT_BUTTON)
@@ -643,10 +614,15 @@ void KeyCallback(unsigned char key, int x, int y)
 
 		// create sphere
 	case 'c': {
-		MySphere  sphereObject;
-		std::cout << "Processing..." << std::endl;
-		sphereObject.Create(globallevels);
-		std::cout << "Sphere created!" << std::endl;
+		MySphere terrainMesh;
+		terrainMesh.Create(globallevels);
+		gTriangleMeshes.clear();
+		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+		if (gTriangleMeshes.size()) {
+			gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+			meshType = MeshType::Mesh;
+			gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
+		}
 		break;
 	}
 
@@ -781,10 +757,10 @@ void KeyCallback(unsigned char key, int x, int y)
 		exit(0);
 
 	case 'y':
-		StrafeCamera(0,1);
+		StrafeCamera(0, 1);
 		break;
 	case 'h':
-		StrafeCamera(0,-1);
+		StrafeCamera(0, -1);
 	default:
 		break;
 	}
@@ -804,8 +780,6 @@ int main(int argc, char** argv)
 	// initialize the mesh file to load
 	std::string meshpath = std::string("../../data/meshes/");
 	std::string meshfilename;
-	std::cout << "Enter OBJ File Name(otherwise press enter none):";
-	std::cin >> meshfilename;
 	meshOBJ = meshpath + meshfilename;
 
 
@@ -856,7 +830,7 @@ int main(int argc, char** argv)
 	// set-up the scene
 	Setup();
 
-	
+
 
 	// add callback functions
 	glutDisplayFunc(DisplayCallback);

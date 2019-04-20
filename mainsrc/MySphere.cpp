@@ -58,7 +58,7 @@ TriangleIndices MySphere::MakeTIndices(int a, int b, int c)
 //Worthless but not changing so we can see how to change values in the vertices.
 int MySphere::Offset(int pointIndex, std::vector<STVector3>* vertices)
 {
-	float pos = (1.0 + sqrtf(33.0)) / 2.0;
+	float pos = (1.0 + sqrtf(numVerts * 1.0)) / 2.0;
 	float old = sqrtf(1 + (pos * pos));
 	float xsquare = vertices->at(pointIndex).x * vertices->at(pointIndex).x;
 	float ysquare = vertices->at(pointIndex).y * vertices->at(pointIndex).y;
@@ -119,7 +119,7 @@ void MySphere::GenerateMesh(STTriangleMesh  *tmesh, std::vector<TriangleIndices>
 
 		tmesh->AddFace(holderOne, holderTwo, holderThree);
 
-		if (i == 32)
+		if (i == numVerts - 1)
 		{
 			std::cout << holderOne << " " << holderTwo << " " << holderThree;
 		}
@@ -144,22 +144,22 @@ void MySphere::InitFaces(void)
 	/* Saving these so we know how to add faces.
 	//m_faces is now a vector with 20 triangles.
 
-	//Triangle Fan Top = 0, 1, 2, 3, 32
-	m_faces.push_back(MakeTIndices(33, 32, 9));
-	m_faces.push_back(MakeTIndices(33, 9, 1));
-	m_faces.push_back(MakeTIndices(33, 1, 0));
-	m_faces.push_back(MakeTIndices(33, 0, 11));
-	m_faces.push_back(MakeTIndices(33, 11, 32));
+	//Triangle Fan Top = 0, 1, 2, 3, numVerts - 1
+	m_faces.push_back(MakeTIndices(numVerts, numVerts - 1, 9));
+	m_faces.push_back(MakeTIndices(numVerts, 9, 1));
+	m_faces.push_back(MakeTIndices(numVerts, 1, 0));
+	m_faces.push_back(MakeTIndices(numVerts, 0, 11));
+	m_faces.push_back(MakeTIndices(numVerts, 11, numVerts - 1));
 
-	//Triangle Fan Bottom = 33, 6, 7, 8, 9
+	//Triangle Fan Bottom = numVerts, 6, 7, 8, 9
 	m_faces.push_back(MakeTIndices(6, 3, 8));
 	m_faces.push_back(MakeTIndices(6, 8, 7));
 	m_faces.push_back(MakeTIndices(6, 7, 10));
 	m_faces.push_back(MakeTIndices(6, 10, 2));
 	m_faces.push_back(MakeTIndices(6, 2, 3));
 
-	//Triangle Strip = 10, 11, 12, 13, 132, 133, 16, 17, 18, 19
-	m_faces.push_back(MakeTIndices(32, 3, 9));
+	//Triangle Strip = 10, 11, 12, 13, 1numVerts - 1, 1numVerts, 16, 17, 18, 19
+	m_faces.push_back(MakeTIndices(numVerts - 1, 3, 9));
 	m_faces.push_back(MakeTIndices(9, 3, 8));
 	m_faces.push_back(MakeTIndices(9, 8, 1));
 	m_faces.push_back(MakeTIndices(1, 8, 7));
@@ -167,36 +167,36 @@ void MySphere::InitFaces(void)
 	m_faces.push_back(MakeTIndices(10, 7, 0));
 	m_faces.push_back(MakeTIndices(11, 10, 0));
 	m_faces.push_back(MakeTIndices(2, 10, 11));
-	m_faces.push_back(MakeTIndices(32, 2, 11));
-	m_faces.push_back(MakeTIndices(3, 2, 32));
+	m_faces.push_back(MakeTIndices(numVerts - 1, 2, 11));
+	m_faces.push_back(MakeTIndices(3, 2, numVerts - 1));
 
 	//20 faces total.
 	*/
 
 
 	//Formulas to add faces to the plane.
-	for (int i = 0; i < 32; i++)
+	for (int i = 0; i < numVerts - 1; i++)
 	{
-		for (int j = 0; j < 32; j++)
+		for (int j = 0; j < numVerts - 1; j++)
 		{
-			m_faces.push_back(MakeTIndices((33 * i) + j, (33 * i) + j + 1, (33 * (i+1)) + j + 1));
-			m_faces.push_back(MakeTIndices((33 * i) + j, (33 * (i + 1)) + j + 1, (33 * (i + 1)) + j));
+			m_faces.push_back(MakeTIndices((numVerts * i) + j, (numVerts * i) + j + 1, (numVerts * (i+1)) + j + 1));
+			m_faces.push_back(MakeTIndices((numVerts * i) + j, (numVerts * (i + 1)) + j + 1, (numVerts * (i + 1)) + j));
 		}
 	}
 
 }
 
 
-// Creates the vertices for a 33 x 33 vertex square.
+// Creates the vertices for a numVerts x numVerts vertex square.
 void MySphere::InitVertices(void)
 {
     m_vertices.clear();
 
-    float pos = (1.0 + sqrtf(33.0))/2.0;
+	float pos = (1.0 + sqrtf(numVerts * 1.0)) / 2.0;
 
-	for (int i = 0; i < 33; i++)
+	for (int i = 0; i < numVerts; i++)
 	{
-		for (int j = 0; j < 33; j++)
+		for (int j = 0; j < numVerts; j++)
 		{
 			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2)); //Was i * 0.2, 0, j * 0.2
 		}
@@ -210,23 +210,44 @@ void MySphere::Create(int levels)
 {
     m_globalCount = 0;
 
+	typedef enum {
+		DS = 0,
+		Perlin = 1
+	} TerrainType;
+
+	int option;
+	std::cout << "Diamond Square Algorithm or Perlin Noise? (0 or 1): ";
+	std::cin >> option;
+
+	std::cout << "Enter the size of your terrain: ";
+	std::cin >> numVerts;
+	std::cout << std::endl;
+
     InitVertices();
 	InitFaces();
 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
 
 	//Creating our DiamondSquare Array
-	PerlinMap arrayMan = PerlinMap(33);
-	arrayMan.buildHeightMap();
-	float ** yArray = arrayMan.getHeightMap();
+	float ** yArray;
+	if (option == TerrainType::DS) {
+		DiamondSquare arrayMan = DiamondSquare(numVerts);
+		arrayMan.buildArray();
+		yArray = arrayMan.getArray();
+	}
+	else {
+		PerlinMap arrayMan = PerlinMap(numVerts);
+		arrayMan.buildHeightMap();
+		yArray = arrayMan.getHeightMap();
+	}
 
 	//Changing the Y values of the vertices with the DiamondSquare Array
-	for (int i = 0; i < 33; i++)
+	for (int i = 0; i < numVerts; i++)
 	{
-		for (int j = 0; j < 33; j++)
+		for (int j = 0; j < numVerts; j++)
 		{
 			float temp = yArray[i][j];
 
-			m_vertices.at((33 * i) + j).y = temp;
+			m_vertices.at((numVerts * i) + j).y = temp;
 		}
 	}
 
@@ -235,7 +256,8 @@ void MySphere::Create(int levels)
 	GenerateMesh(dog, m_faces, m_vertices, 0);
 
 	m_TriangleMeshes.push_back(dog);
-	
+
+	std::cout << std::endl << "Terrain generated!" << std::endl;
 
     // save the file
     Save(m_pFileName);
