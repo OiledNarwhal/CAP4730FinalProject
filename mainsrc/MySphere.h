@@ -35,10 +35,13 @@ public:
                                     ~MySphere                   (void); // destructor
 
     void                            Create                      (int levels); // creates the initial sphere
+	void							Update(int offsetX, int offsetY);
     std::vector<STTriangleMesh *>   GetTriangleMesh             (void); // returns the triangle mesh
     STTriangleMesh *                GetTriangleMesh             (int id); // returns the triangle mesh at the index
 
     char  *                         FileName                    (void); // return the file name
+	std::vector<STVector3> GetVertices();
+	std::vector<TriangleIndices>    m_faces;                // current facelist stored as indices
     
 
 
@@ -47,7 +50,7 @@ private:
 
     char                            *m_pFileName;           // file name for the ouput mesh obj file
     std::vector<STVector3>          m_vertices;             // current vetex list
-    std::vector<TriangleIndices>    m_faces;                // current facelist stored as indices
+    
     std::vector<STTriangleMesh *>   m_TriangleMeshes;       // triangle meshes for this sphere
     int                             m_globalCount;          // global counter, for tracking offsets to sphere surface
     int                             m_levels;               // subdivision levels
@@ -70,6 +73,8 @@ private:
     
     
     void                            ClearMesh                   (void);
+
+	
 
 
     void                            Save                        (char *filename);

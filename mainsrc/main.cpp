@@ -23,6 +23,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+using namespace std;
+
 //--------------------------------------------------
 // Globals used by this application.
 // As a rule, globals are Evil, but this is a small application
@@ -41,14 +43,18 @@ std::string normalMap;
 std::string displacementMap;
 std::string meshOBJ;
 
+//Attempting a different drawing method.
+vector<float> vertices;
+vector<float> colors;
+
 //Added
 std::string colorMap;
 
 // Light source attributes
-static float ambientLight[] = { 0.50, 0.50, 0.50, 1.0 };
-static float diffuseLight[] = { 1.00, 1.00, 1.00, 1.0 };
-static float specularLight[] = { 1.00, 1.00, 1.00, 1.0 };
-float lightPosition[] = { 10.0f, 15.0f, 10.0f, 1.0f }; // was 10.0f, 15.0f, 10.0f, 1.0f
+static float ambientLight[] = { .16, .16, .16, .05 };
+static float diffuseLight[] = { .16, .16, .16, .05 };
+static float specularLight[] = { .16, .16, .16, .05 };
+float lightPosition[] = { 10.0f, 1000.0f, 10.0f, 1.0f }; // was 10.0f, 15.0f, 10.0f, 1.0f
 
 
 // textures
@@ -121,6 +127,7 @@ STTriangleMesh* gCoordAxisTriangleMesh = NULL;
 int TesselationDepth = 100;
 MeshType meshType = MeshType::Mesh; // mesh type
 std::queue<MeshType> meshQueue;
+MySphere terrainMesh;
 
 
 
@@ -173,7 +180,7 @@ void resetUp()
 //-----------------------------------------------
 void CreateYourOwnMesh()
 {
-	MySphere  terrainMesh;
+	terrainMesh;
 	terrainMesh.Create(globallevels);
 
 	STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
@@ -420,14 +427,48 @@ void DisplayCallback()
 		}
 
 		glPushMatrix();
+
+		// must bind the shader
+		shader->UnBind();
+
+		// set textures
+		glActiveTexture(GL_TEXTURE0);
+		surfaceNormTex->UnBind();
+
+		// set textures
+		glActiveTexture(GL_TEXTURE1);
+		surfaceDisplaceTex->UnBind();
+
+		//Added
+		glActiveTexture(GL_TEXTURE2);
+		surfaceColorTex->UnBind();
+
+
+		
+
 		// Pay attention to scale
 		STVector3 size_vector = gBoundingBox.second - gBoundingBox.first;
 		float maxSize = (std::max)((std::max)(size_vector.x, size_vector.y), size_vector.z);
 		glScalef(3.0f / maxSize, 3.0f / maxSize, 3.0f / maxSize);
 		glTranslatef(-gMassCenter.x, -gMassCenter.y, -gMassCenter.z);
+
+		/*This is a new Drawing attempt to see if it's faster*/
+
+		//cout << "vertices size: " << vertices.size() << "\n";
+		/*
+		glEnable(GL_LIGHTING);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glVertexPointer(3, GL_FLOAT, 0, vertices.data());
+		glDrawArrays(GL_TRIANGLES, 0, vertices.size()/3);
+		glDisableClientState(GL_VERTEX_ARRAY);
+		*/
+		//This is old draw.
+		
 		for (int id = 0; id < (int)gTriangleMeshes.size(); id++) {
 			gTriangleMeshes[id]->Draw(smooth);
 		}
+		
+		
 		glPopMatrix();
 	}
 	else if (meshType == MeshType::Axis)
@@ -449,6 +490,22 @@ void DisplayCallback()
 			shader->SetUniform("colorMapping", -1.0);
 			shader->SetUniform("TesselationDepth", TesselationDepth);
 		}
+
+		// must bind the shader
+		shader->UnBind();
+
+		// set textures
+		glActiveTexture(GL_TEXTURE0);
+		surfaceNormTex->UnBind();
+
+		// set textures
+		glActiveTexture(GL_TEXTURE1);
+		surfaceDisplaceTex->UnBind();
+
+		//Added
+		glActiveTexture(GL_TEXTURE2);
+		surfaceColorTex->UnBind();
+
 
 		// draw the geometry here
 		if (gCoordAxisTriangleMesh)
@@ -602,20 +659,60 @@ void MouseMotionCallback(int x, int y)
 }
 
 
-
+int offsetX;
+int offsetY;
 
 //-------------------------------------------------
 // keyboard callback
 //-------------------------------------------------
 void KeyCallback(unsigned char key, int x, int y)
 {
-
+	//terrainMesh;
 	switch (key) {
 
-		// create sphere
-	case 'c': {
-		MySphere terrainMesh;
-		terrainMesh.Create(globallevels);
+	case 'a' :
+	{
+		offsetX = offsetX - 1;
+		terrainMesh.Update(offsetX, offsetY);
+		gTriangleMeshes.clear();
+		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+		if (gTriangleMeshes.size()) {
+			gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+			meshType = MeshType::Mesh;
+			gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
+		}
+		break;
+	}
+	case 'w':
+	{
+		offsetY = offsetY - 1;
+		terrainMesh.Update(offsetX, offsetY);
+		gTriangleMeshes.clear();
+		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+		if (gTriangleMeshes.size()) {
+			gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+			meshType = MeshType::Mesh;
+			gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
+		}
+		break;
+	}
+	case 's':
+	{
+		offsetY = offsetY + 1;
+		terrainMesh.Update(offsetX, offsetY);
+		gTriangleMeshes.clear();
+		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+		if (gTriangleMeshes.size()) {
+			gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+			meshType = MeshType::Mesh;
+			gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
+		}
+		break;
+	}
+	case 'd':
+	{
+		offsetX = offsetX + 1;
+		terrainMesh.Update(offsetX, offsetY);
 		gTriangleMeshes.clear();
 		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
 		if (gTriangleMeshes.size()) {
@@ -626,7 +723,44 @@ void KeyCallback(unsigned char key, int x, int y)
 		break;
 	}
 
+		// create sphere
+	case 'c': {
+		terrainMesh;
+		terrainMesh.Create(globallevels);
+		gTriangleMeshes.clear();
+		STTriangleMesh::LoadObj(gTriangleMeshes, terrainMesh.FileName());
+		if (gTriangleMeshes.size()) {
+			gMassCenter = STTriangleMesh::GetMassCenter(gTriangleMeshes);
+			meshType = MeshType::Mesh;
+			gBoundingBox = STTriangleMesh::GetBoundingBox(gTriangleMeshes);
+		}
 
+		/*
+		vector<STVector3> vertTransfer = terrainMesh.GetVertices();
+		cout << "vertTransfer size: " << vertTransfer.size() << "\n";
+
+		vertices.clear();
+		for (int j = 0; j < terrainMesh.m_faces.size(); j++)
+		{
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i1).x);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i1).y);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i1).z);
+
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i2).x);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i2).y);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i2).z);
+
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i3).x);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i3).y);
+			vertices.push_back(vertTransfer.at(terrainMesh.m_faces.at(j).i3).z);
+		}
+
+		cout << "vertices size: " << vertices.size() << "\n";
+		*/
+		break;
+	}
+
+	/*
 			  // toggle the mesh from the createYourOwnMesh on and off
 	case 'd': {
 		meshType = meshQueue.front();
@@ -634,9 +768,9 @@ void KeyCallback(unsigned char key, int x, int y)
 		meshQueue.pop();
 		break;
 	}
+	*/
 
-
-			  // save a screen shot as data/images/screenshot.jpg
+	/*		  // save a screen shot as data/images/screenshot.jpg
 	case 's': {
 		STImage* screenshot = new STImage(gWindowSizeX, gWindowSizeY);
 		screenshot->Read(0, 0);
@@ -644,7 +778,7 @@ void KeyCallback(unsigned char key, int x, int y)
 		delete screenshot;
 		break;
 	}
-
+	*/
 			  // reset the camera
 	case 'r':
 		resetCamera();
@@ -701,6 +835,7 @@ void KeyCallback(unsigned char key, int x, int y)
 		//Calling the necessary function
 		if (gTriangleMeshes.size())
 		{
+			/*
 			gTriangleMeshes.at(0)->CalculateTextureCoordinatesViaSphericalProxy();
 
 			gTriangleMeshes.at(0)->Build();
@@ -714,6 +849,7 @@ void KeyCallback(unsigned char key, int x, int y)
 			gTriangleMeshes.at(0)->mMaterialSpecular[1] = 0.6f;
 			gTriangleMeshes.at(0)->mMaterialSpecular[2] = 0.6f;
 			gTriangleMeshes.at(0)->mShininess = 8.0f;
+			*/
 		}
 
 		/*
@@ -731,12 +867,12 @@ void KeyCallback(unsigned char key, int x, int y)
 		smooth = !smooth;
 		break;
 
-		// save the triangle mesh
+	/*	// save the triangle mesh
 	case 'w':
 		for (unsigned int id = 0; id < gTriangleMeshes.size(); id++)
 			gTriangleMeshes[id]->Write("output.obj");
 		break;
-
+	*/
 		// set levels
 	case 'v': {
 		std::cout << "Enter the number of levels:";
@@ -744,14 +880,14 @@ void KeyCallback(unsigned char key, int x, int y)
 		break;
 	}
 
-			  // draw corrdinate axis
+	/*		  // draw corrdinate axis
 	case 'a':
 		for (int id = 0; id < (int)gTriangleMeshes.size(); id++)
 			gTriangleMeshes[id]->mDrawAxis = !gTriangleMeshes[id]->mDrawAxis;
 		if (gCoordAxisTriangleMesh != 0)
 			gCoordAxisTriangleMesh->mDrawAxis = !gCoordAxisTriangleMesh->mDrawAxis;
 		break;
-
+	*/
 		// quit
 	case 'q':
 		exit(0);
@@ -767,6 +903,8 @@ void KeyCallback(unsigned char key, int x, int y)
 
 	// redraw scene
 	glutPostRedisplay();
+
+	cout << endl;
 }
 
 

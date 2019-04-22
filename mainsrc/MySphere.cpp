@@ -173,6 +173,7 @@ void MySphere::InitFaces(void)
 	//20 faces total.
 	*/
 
+	m_faces.clear();
 
 	//Formulas to add faces to the plane.
 	for (int i = 0; i < numVerts - 1; i++)
@@ -201,11 +202,13 @@ void MySphere::InitVertices(void)
 			m_vertices.push_back(STVector3(i * 0.2, 0, j * 0.2)); //Was i * 0.2, 0, j * 0.2
 		}
 	}
+
+	//std::cout << "MySphere vertices size: " m_vertices.size << "\n";
 }
 
 
 
-
+float ** yArray;
 void MySphere::Create(int levels)
 {
     m_globalCount = 0;
@@ -228,14 +231,14 @@ void MySphere::Create(int levels)
 	std::cout << "Number of Faces: " << m_faces.size() << '\n'; 
 
 	//Creating our DiamondSquare Array
-	float ** yArray;
+	//float ** yArray;
 	if (option == TerrainType::DS) {
-		DiamondSquare arrayMan = DiamondSquare(numVerts);
+		DiamondSquare arrayMan = DiamondSquare(numVerts * 2);
 		arrayMan.buildArray();
 		yArray = arrayMan.getArray();
 	}
 	else {
-		PerlinMap arrayMan = PerlinMap(numVerts);
+		PerlinMap arrayMan = PerlinMap(numVerts * 2);
 		arrayMan.buildHeightMap();
 		yArray = arrayMan.getHeightMap();
 	}
@@ -262,6 +265,32 @@ void MySphere::Create(int levels)
     // save the file
     Save(m_pFileName);
 
+}
+
+void MySphere::Update(int offsetX, int offsetY)
+{
+	//Changing the Y values of the vertices with the DiamondSquare Array
+	for (int i = 0; i < numVerts; i++)
+	{
+		for (int j = 0; j < numVerts; j++)
+		{
+			float temp = yArray[i + offsetX][j + offsetY];
+
+			m_vertices.at((numVerts * i) + j).y = temp;
+		}
+	}
+
+
+	STTriangleMesh* dog = new STTriangleMesh();
+	GenerateMesh(dog, m_faces, m_vertices, 0);
+
+	m_TriangleMeshes.clear();
+	m_TriangleMeshes.push_back(dog);
+
+	std::cout << std::endl << "Terrain Updated!" << std::endl;
+
+	// save the file
+	Save(m_pFileName);
 }
 
 
@@ -309,4 +338,9 @@ void MySphere::ClearMesh(void)
 
     if(m_TriangleMeshes.size())
         m_TriangleMeshes.clear();
+}
+
+std::vector<STVector3> MySphere::GetVertices()
+{
+	return m_vertices;
 }
